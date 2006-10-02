@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; $VERSION = qv('0.0.3');
+use version; $VERSION = qv('0.0.2');
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
@@ -21,13 +21,11 @@ __END__
 
 =head1 NAME
 
-DBIx::Asynapse - [One line description of module's purpose here]
-
+DBIx::Asynapse - Statement Mapping Layer for Asynapse framework.
 
 =head1 VERSION
 
-This document describes DBIx::Asynapse version 0.0.1
-
+This document describes DBIx::Asynapse version 0.0.2
 
 =head1 SYNOPSIS
 

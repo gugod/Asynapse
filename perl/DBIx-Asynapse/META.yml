@@ -1,0 +1,20 @@
+abstract: Statement Mapping Layer for Asynapse framework.
+author: Kang-min Liu  C<< <gugod@gugod.org> >>
+distribution_type: module
+generated_by: Module::Install version 0.640
+license: perl
+name: DBIx-Asynapse
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  Test::More: 0
+  Test::Perl::Critic: 0
+  version: 0
+version: !!perl/hash:version 
+  qv: 1
+  version: 
+    - 0
+    - 0
+    - 2
