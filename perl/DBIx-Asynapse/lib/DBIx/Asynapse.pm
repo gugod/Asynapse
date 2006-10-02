@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.1');
 
 # Other recommended modules (uncomment to use):
 #  use IO::Prompt;
