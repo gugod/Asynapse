@@ -2,15 +2,13 @@ package DBIx::Asynapse;
 
 use warnings;
 use strict;
-use Carp;
 
 use version; our $VERSION = qv('0.0.1');
 
 use Exporter::Lite;
-our @EXPORT = qw(op statementOf tmpl);
+our @EXPORT = qw(op statementOf);
 
 use Template::Simple;
-use Class::Field qw(field);
 
 my %OP_TABLE;
 
