@@ -6,4 +6,5 @@ if (!require Test::Perl::Critic) {
     );
 }
 
+use Test::Perl::Critic ( -profile => 't/perlcriticrc' );
 Test::Perl::Critic::all_critic_ok();

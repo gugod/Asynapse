@@ -6,14 +6,29 @@ use Carp;
 
 use version; our $VERSION = qv('0.0.1');
 
-# Other recommended modules (uncomment to use):
-#  use IO::Prompt;
-#  use Perl6::Export;
-#  use Perl6::Slurp;
-#  use Perl6::Say;
+use Exporter::Lite;
+our @EXPORT = qw(op statementOf tmpl);
+
+use Template::Simple;
+use Class::Field qw(field);
+
+my %OP_TABLE;
+
+sub op {
+    my ($opcode, $sth_template) = @_;
+    $OP_TABLE{$opcode} = $sth_template;
+}
+
+sub statementOf {
+    my $self   = shift;
+    my $opcode = shift;
+    my $vars   = [@_];
+    if ( exists $OP_TABLE{$opcode} ) {
+        return Template::Simple->new()->render( $OP_TABLE{$opcode}, $vars );
+    }
+}
 
 
-# Module implementation here
 
 
 1; # Magic true value required at end of module
@@ -25,18 +40,20 @@ DBIx::Asynapse - Statement Mapping Layer for Asynapse framework.
 
 =head1 VERSION
 
-This document describes DBIx::Asynapse version 0.0.2
+This document describes DBIx::Asynapse version 0.0.1
 
 =head1 SYNOPSIS
 
+    package MyRecord;
     use DBIx::Asynapse;
+
+    op getAll => 'SELECT * FROM [% books %]';
 
 =for author to fill in:
     Brief code example(s) here showing commonest usage(s).
     This section will be as far as many users bother reading
     so make it as educational and exeplary as possible.
-  
-  
+
 =head1 DESCRIPTION
 
 =for author to fill in:
@@ -52,6 +69,17 @@ This document describes DBIx::Asynapse version 0.0.2
     exported, or methods that may be called on objects belonging to the
     classes provided by the module.
 
+=over 4
+
+=item op $code => $statement_template
+
+Lorem Ipsum.
+
+=item statementOf $code, $arg1, $arg2, ...
+
+Lorem Ipsum.
+
+=back
 
 =head1 DIAGNOSTICS
 
