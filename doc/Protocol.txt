@@ -1,0 +1,32 @@
+(Still in scratch)
+
+Actions:
+
+Load
+----
+
+### Request
+
+GET server_url?action=load
+
+### Response
+
+{
+  'schema_version': 42,
+  'tables' : ['brothers', 'sisters', 'movies' ]
+}
+
+
+Load A Table
+------------
+
+### Request
+
+GET server_url?action=load;table=${table}
+
+### Response
+
+{
+  'columns' : ['col1', 'col2', 'col3' ]
+}
+

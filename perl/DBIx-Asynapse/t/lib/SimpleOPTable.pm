@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 package SimpleOPTable;
-use DBIx::Asynapse;
+use DBIx::Asynapse::Table;
 
 op 'getAll' => 'SELECT * FROM [% table %]';
 

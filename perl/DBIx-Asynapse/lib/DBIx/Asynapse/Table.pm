@@ -1,4 +1,4 @@
-package DBIx::Asynapse;
+package DBIx::Asynapse::Table;
 
 use warnings;
 use strict;
@@ -6,25 +6,42 @@ use strict;
 use version; our $VERSION = qv('0.0.1');
 
 use Exporter::Lite;
-our @EXPORT = qw();
+our @EXPORT = qw(op statementOf);
 
 use Template::Simple;
+
+my %OP_TABLE;
+
+sub op {
+    my ($opcode, $sth_template) = @_;
+    $OP_TABLE{$opcode} = $sth_template;
+}
+
+sub statementOf {
+    my $self   = shift;
+    my $opcode = shift;
+    my $vars   = [@_];
+    if ( exists $OP_TABLE{$opcode} ) {
+        return Template::Simple->new()->render( $OP_TABLE{$opcode}, $vars );
+    }
+}
+
 
 1; # Magic true value required at end of module
 __END__
 
 =head1 NAME
 
-DBIx::Asynapse - Statement Mapping Layer for Asynapse framework.
+DBIx::Asynapse::Table - Statement Mapping Layer for Asynapse framework.
 
 =head1 VERSION
 
-This document describes DBIx::Asynapse version 0.0.1
+This document describes DBIx::Asynapse::Table version 0.0.1
 
 =head1 SYNOPSIS
 
     package MyRecord;
-    use DBIx::Asynapse;
+    use DBIx::Asynapse::Table;
 
     op getAll => 'SELECT * FROM [% books %]';
 
@@ -47,6 +64,18 @@ This document describes DBIx::Asynapse version 0.0.1
     interface. These normally consist of either subroutines that may be
     exported, or methods that may be called on objects belonging to the
     classes provided by the module.
+
+=over 4
+
+=item op $code => $statement_template
+
+Lorem Ipsum.
+
+=item statementOf $code, $arg1, $arg2, ...
+
+Lorem Ipsum.
+
+=back
 
 =head1 DIAGNOSTICS
 
@@ -159,6 +188,3 @@ RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
 FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
 SUCH DAMAGES.
-
-=cut
-
