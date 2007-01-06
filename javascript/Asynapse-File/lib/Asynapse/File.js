@@ -116,14 +116,26 @@ _.open = function ( path, mode ) {
     }
     
     this.handle.opened = true;
+    return true;
 }
 
 _.close = function () {
-    
+    this.handle = {}
+    return true;
 }
 
 _.slurp = function () {
+    var req = new HTTP.Request({
+        method: 'get',
+        asynchronous: 'false',
+        uri: this.model + "/name/" + this.handle.path + "/content";
+    });
     
+    if ( req.isSuccess() ) {
+        this.handle.file_content = req.transport.responseText;
+        return this.handle.file_content;
+    } else {
+    }
 }
 
 _.write = function (  ) {
