@@ -101,7 +101,7 @@ _.open = function ( path, mode ) {
     var req = new HTTP.Request({
         method: 'get',
         asynchronous: 'false',
-        uri: this.model + "/name/" + path + "/name";
+        uri: this.model + "/name/" + path + "/name"
     });
 
     this.handle = {
@@ -128,7 +128,7 @@ _.slurp = function () {
     var req = new HTTP.Request({
         method: 'get',
         asynchronous: 'false',
-        uri: this.model + "/name/" + this.handle.path + "/content";
+        uri: this.model + "/name/" + this.handle.path + "/content"
     });
     
     if ( req.isSuccess() ) {
