@@ -97,11 +97,25 @@ _.setConfig = function (config) {
     }
 }
 
+_.exists = function ( path ) {
+    var uri = this.config.model + "/name/" + path + "/name";
+    var req = new HTTP.Request({
+        method: 'get',
+        asynchronous: 'false',
+        uri: uri
+    });
+
+    if ( req.is_success ) {
+        return true;
+    }
+    return false;
+}
+
 _.open = function ( path, mode ) {
     var req = new HTTP.Request({
         method: 'get',
         asynchronous: 'false',
-        uri: this.model + "/name/" + path + "/name"
+        uri: this.config.model + "/name/" + path + "/name"
     });
 
     this.handle = {
@@ -128,7 +142,7 @@ _.slurp = function () {
     var req = new HTTP.Request({
         method: 'get',
         asynchronous: 'false',
-        uri: this.model + "/name/" + this.handle.path + "/content"
+        uri: this.config.model + "/name/" + this.handle.path + "/content"
     });
     
     if ( req.isSuccess() ) {

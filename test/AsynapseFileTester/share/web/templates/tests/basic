@@ -1,0 +1,24 @@
+<&| /_elements/wrapper, title => "Basic tests" &>
+
+Testing.
+
+<pre id="test">
+
+<script type="text/javascript">
+JSAN.use('Test.Builder');
+
+var t = new Test.Builder();
+t.plan({ tests: 1 });
+
+Asynapse.File.setConfig({
+    model: "http://localhost:8888/=/model/File"
+});
+
+var f = new Asynapse.File;
+
+t.ok( f.exists("nonexists") == false, "Non existing file does not eixsts");
+
+</script>
+</pre>
+</&>
+

@@ -4,4 +4,3 @@ use warnings;
 use base 'Jifty::Plugin::Asynapse::Model::File';
 
 1;
-
