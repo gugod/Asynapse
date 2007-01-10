@@ -1,0 +1,7 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use DBI;
+
+my $dbh = DBI->connect("dbi:SQLite:dbname=var/asynapsefiletester.db");
+$dbh->do(qq{INSERT INTO files VALUES(1, "hello.txt", "Hello World")});

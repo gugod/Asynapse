@@ -8,15 +8,18 @@ Testing.
 JSAN.use('Test.Builder');
 
 var t = new Test.Builder();
-t.plan({ tests: 1 });
+t.plan({ tests: 2 });
 
 Asynapse.File.setConfig({
     model: "http://localhost:8888/=/model/File"
 });
 
-var f = new Asynapse.File;
+// Object method.
+var f1 = new Asynapse.File;
+t.ok( f1.exists("nonexists") == false, "Non existing file does not eixsts");
 
-t.ok( f.exists("nonexists") == false, "Non existing file does not eixsts");
+var f2 = new Asynapse.File;
+t.ok( f2.exists("hello.txt") == true, "Existing file does eixsts");
 
 </script>
 </pre>

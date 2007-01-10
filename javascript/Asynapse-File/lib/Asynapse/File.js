@@ -101,11 +101,11 @@ _.exists = function ( path ) {
     var uri = this.config.model + "/name/" + path + "/name";
     var req = new HTTP.Request({
         method: 'get',
-        asynchronous: 'false',
+        asynchronous: false,
         uri: uri
     });
 
-    if ( req.is_success ) {
+    if ( req.isSuccess() ) {
         return true;
     }
     return false;
