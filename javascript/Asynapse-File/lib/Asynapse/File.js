@@ -141,15 +141,19 @@ _.close = function () {
 _.slurp = function () {
     var req = new HTTP.Request({
         method: 'get',
-        asynchronous: 'false',
-        uri: this.config.model + "/name/" + this.handle.path + "/content"
+        asynchronous: false,
+        uri: this.config.model + "/name/" + this.handle.path + "/content.js"
     });
     
     if ( req.isSuccess() ) {
-        this.handle.file_content = req.transport.responseText;
-        return this.handle.file_content;
+        // This js is jifty-specific. Other framework may not generating
+        // js using $_ variable.
+        eval(req.transport.responseText);
+        this.handle.file_content = $_;
     } else {
+        this.handle.file_content = null;
     }
+    return this.handle.file_content;
 }
 
 _.write = function (  ) {
@@ -157,9 +161,5 @@ _.write = function (  ) {
 }
 
 _.seek = function ( pos ) {
-    
-}
-
-_.slurp = function (  ) {
     
 }
