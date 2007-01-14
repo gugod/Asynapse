@@ -1,0 +1,28 @@
+<&| /_elements/wrapper, title => "Basic tests" &>
+
+Testing.
+
+<pre id="test">
+
+<script type="text/javascript">
+JSAN.use('Test.Builder');
+
+var t = new Test.Builder();
+t.plan({ tests: 3 });
+
+Asynapse.File.setConfig({
+    model: "http://localhost:8888/=/model/File"
+});
+
+// Class methods.
+t.ok( Asynapse.File.exists("nonexists") == false, "Non existing file does not eixsts");
+
+t.ok( Asynapse.File.exists("hello.txt") == true, "Existing file does eixsts");
+
+var f3_content = Asynapse.File.slurp( "hello.txt" );
+t.ok( f3_content == "Hello World", "correctly read hello.txt's content.");
+
+</script>
+</pre>
+</&>
+

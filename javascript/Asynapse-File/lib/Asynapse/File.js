@@ -83,12 +83,24 @@ Asynapse.File.setConfig = function (config) {
     }
 }
 
+// Class methods
+
+Asynapse.File.slurp = function ( path ) {
+    var f = new Asynapse.File();
+    f.open(path);
+    return f.slurp();
+}
+
+Asynapse.File.exists = function ( path ) {
+    var f = new Asynapse.File();
+    return f.exists(path);
+}
+
+
+// Object methods.
 Asynapse.File.prototype = {}
 
 var _ = Asynapse.File.prototype
-
-_.url_for = function ( op ) {
-}
 
 _.setConfig = function (config) {
     this.config = {};
