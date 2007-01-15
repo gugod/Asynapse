@@ -102,6 +102,7 @@ Asynapse.File.prototype = {}
 
 var _ = Asynapse.File.prototype
 
+// Helper methods
 _.setConfig = function (config) {
     this.config = {};
     for(key in config) {
@@ -109,14 +110,25 @@ _.setConfig = function (config) {
     }
 }
 
-_.exists = function ( path ) {
-    var uri = this.config.model + "/name/" + path + "/name";
-    var req = new HTTP.Request({
+_.uri_for = function ( param ) {
+    if ( !param['path'] ) {
+        throw("'path' param is reqruied.");
+    }
+    return this.config.model + "/name/" + param['path']
+        + ( param["field"] ? ("/" + param["field"] + ".js")  : "" );
+}
+
+_.request_for = function ( param ) {
+    return new HTTP.Request({
         method: 'get',
         asynchronous: false,
-        uri: uri
+        uri: this.uri_for( param )
     });
+}
 
+// Interface methods
+_.exists = function ( path ) {
+    var req = this.request_for({ "path": path, "field": 'name' });
     if ( req.isSuccess() ) {
         return true;
     }
@@ -124,12 +136,7 @@ _.exists = function ( path ) {
 }
 
 _.open = function ( path, mode ) {
-    var req = new HTTP.Request({
-        method: 'get',
-        asynchronous: 'false',
-        uri: this.config.model + "/name/" + path + "/name"
-    });
-
+    var req = this.request_for({ "path": path, "field": 'name' });
     this.handle = {
         path: path,
         mode: mode,
@@ -151,12 +158,7 @@ _.close = function () {
 }
 
 _.slurp = function () {
-    var req = new HTTP.Request({
-        method: 'get',
-        asynchronous: false,
-        uri: this.config.model + "/name/" + this.handle.path + "/content.js"
-    });
-    
+    var req = this.request_for({ "path": this.handle.path, "field": "content" });
     if ( req.isSuccess() ) {
         // This js is jifty-specific. Other framework may not generating
         // js using $_ variable.
