@@ -1,0 +1,11 @@
+
+Title: Asynase - The missing links between servers and clients.
+Length: 20min or 40min
+Description:
+
+As API-based web services seems to be the way to go, API-based web app
+development is still in it's early age.  Asynapse comes in the way
+tring to provide a bridge between servers and clients, specifially,
+javascript. It'll extend the ability of javascript language to be more
+easily interactive with server.
+
