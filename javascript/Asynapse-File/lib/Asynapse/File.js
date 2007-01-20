@@ -134,19 +134,20 @@ Asynapse.File.prototype = {
     },
 
     open: function ( path, mode ) {
-        var req = this.request_for({ "path": path, "field": 'name' });
+        if ( typeof mode == 'undefined' )
+            mode = "";
+
         this.handle = {
             path: path,
             mode: mode,
-            exists: false
+            opened: true,
+            pos: 0
         }
 
-        if ( req.is_success ) {
-            this.handle.exists = true;
-        } else {
+        if ( mode == ">" ) {
+            this.handle.content_ = "";
         }
         
-        this.handle.opened = true;
         return true;
     },
 
@@ -155,25 +156,39 @@ Asynapse.File.prototype = {
         return true;
     },
 
+    save: function() {
+    },
+
     slurp: function () {
+        if ( typeof this.handle.content != 'undefined' ) {
+            return this.handle.content;
+        }
         var req = this.request_for({ "path": this.handle.path, "field": "content" });
         if ( req.isSuccess() ) {
             // This js is jifty-specific. Other framework may not generating
             // js using $_ variable.
             eval(req.transport.responseText);
-            this.handle.file_content = $_;
+            this.handle.content = $_;
         } else {
-            this.handle.file_content = null;
+            this.handle.content = null;
         }
-        return this.handle.file_content;
+        return this.handle.content;
     },
 
-    write: function (  ) {
-        
+    print: function ( str ) {
+        var s = this.handle.content;
+        var pre = s.substr(0, this.handle.pos - 1);
+        var pos = s.substr(this.handle.pos);
+        this.handle.content = pre + str + pos;
+        return true;
+    },
+    
+    write: function ( str ) {
+        return this.print(str);
     },
 
     seek: function ( pos ) {
-        
+        this.handle.pos = pos;
     }
 };
 
