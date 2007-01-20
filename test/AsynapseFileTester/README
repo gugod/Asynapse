@@ -1,0 +1,8 @@
+
+Steps run tests:
+
+% bin/jifty schema --setup
+% bin/setup-test-data
+% bin/jifty server
+
+Hit http://localhost:8888/tests/
