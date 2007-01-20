@@ -1,0 +1,33 @@
+<&| /_elements/wrapper, title => "print tests" &>
+
+Testing.
+
+<pre id="test">
+
+<script type="text/javascript">
+JSAN.use('Test.Builder');
+
+var t = new Test.Builder();
+t.plan({ tests: 2 });
+
+Asynapse.File.setConfig({
+    model: "http://localhost:8888/=/model/File"
+});
+
+var f1 = new Asynapse.File;
+f1.open("hello.txt", "<");
+var f1_content = f1.slurp();
+t.ok( f1_content == "Hello World", "correctly read hello.txt's content.");
+f1.close();
+
+f1 = new Asynapse.File;
+f1.open("hello.txt", ">");
+f1.print("Hello Borges");
+f1_content = f1.slurp();
+t.ok( f1_content == "Hello Borges", "print is functional.");
+
+
+</script>
+</pre>
+</&>
+
