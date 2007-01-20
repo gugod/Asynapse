@@ -112,8 +112,11 @@ Asynapse.File.prototype = {
         if ( !param['path'] ) {
             throw("'path' param is reqruied.");
         }
-        return this.config.model + "/name/" + param['path']
+        var uri = this.config.model + "/name/" + param['path']
             + ( param["field"] ? ("/" + param["field"] + ".js")  : "" );
+        if ( param.request_method ) {
+            uri = uri + "!" + param.request_method;
+        }
     },
 
     request_for: function ( param ) {
@@ -157,6 +160,16 @@ Asynapse.File.prototype = {
     },
 
     save: function() {
+        // replace_item in Jifty::Plugin::REST needs to be implemented.
+        throw("save() is unimplemented");
+        
+        return new HTTP.Request({
+            method: 'post',
+            request_method: 'PUT',
+            asynchronous: false,
+            uri: this.uri_for({ path: this.handle.path }),
+            postbody: {}
+        });
     },
 
     slurp: function () {
