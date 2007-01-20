@@ -191,12 +191,17 @@ Asynapse.File.prototype = {
 
     print: function ( str ) {
         var s = this.handle.content || "";
-        var pre = s.substr(0, this.handle.pos - 1);
-        var pos = s.substr(this.handle.pos);
-        this.handle.content = pre + str + pos;
+        var pr = s.substr(0, this.handle.pos - 1);
+        var po = s.substr(this.handle.pos);
+        this.handle.content = pr + str + po;
+        this.handle.pos += str.length();
         return true;
     },
-    
+
+    println: function ( str ) {
+        return this.print( str + "\n" );
+    },
+
     write: function ( str ) {
         return this.print(str);
     },

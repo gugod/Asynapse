@@ -8,7 +8,7 @@ Testing.
 JSAN.use('Test.Builder');
 
 var t = new Test.Builder();
-t.plan({ tests: 2 });
+t.plan({ tests: 4 });
 
 Asynapse.File.setConfig({
     model: "http://localhost:8888/=/model/File"
@@ -25,6 +25,16 @@ f1.open("hello.txt", ">");
 f1.print("Hello Borges");
 f1_content = f1.slurp();
 t.ok( f1_content == "Hello Borges", "print is functional.");
+
+f1.print(", Luke");
+f1_content = f1.slurp();
+t.ok( f1_content == "Hello Borges, Luke\n", "println is functional.");
+
+f1.seek(0);
+f1.println("Luke, I am your father");
+f1_content = f1.slurp();
+t.ok( f1_content == "Luke, I am your father\n", "println is functional.");
+
 
 </script>
 </pre>
