@@ -66,7 +66,7 @@ Same as print, but always append a newline.
 
 if ( typeof Asynapse == 'undefined' )
     Asynapse = {};
-
+ 
 Asynapse.File = function() {
     this.setConfig( Asynapse.File.config );
     return this;
@@ -98,82 +98,83 @@ Asynapse.File.exists = function ( path ) {
 
 
 // Object methods.
-Asynapse.File.prototype = {}
+Asynapse.File.prototype = {
 
-var _ = Asynapse.File.prototype
+    // Helper methods
+    setConfig: function (config) {
+        this.config = {};
+        for(key in config) {
+            this.config[key] = config[key]
+        }
+    },
 
-// Helper methods
-_.setConfig = function (config) {
-    this.config = {};
-    for(key in config) {
-        this.config[key] = config[key]
-    }
-}
+    uri_for: function ( param ) {
+        if ( !param['path'] ) {
+            throw("'path' param is reqruied.");
+        }
+        return this.config.model + "/name/" + param['path']
+            + ( param["field"] ? ("/" + param["field"] + ".js")  : "" );
+    },
 
-_.uri_for = function ( param ) {
-    if ( !param['path'] ) {
-        throw("'path' param is reqruied.");
-    }
-    return this.config.model + "/name/" + param['path']
-        + ( param["field"] ? ("/" + param["field"] + ".js")  : "" );
-}
+    request_for: function ( param ) {
+        return new HTTP.Request({
+            method: 'get',
+            asynchronous: false,
+            uri: this.uri_for( param )
+        });
+    },
 
-_.request_for = function ( param ) {
-    return new HTTP.Request({
-        method: 'get',
-        asynchronous: false,
-        uri: this.uri_for( param )
-    });
-}
+    // Interface methods
+    exists: function ( path ) {
+        var req = this.request_for({ "path": path, "field": 'name' });
+        if ( req.isSuccess() ) {
+            return true;
+        }
+        return false;
+    },
 
-// Interface methods
-_.exists = function ( path ) {
-    var req = this.request_for({ "path": path, "field": 'name' });
-    if ( req.isSuccess() ) {
+    open: function ( path, mode ) {
+        var req = this.request_for({ "path": path, "field": 'name' });
+        this.handle = {
+            path: path,
+            mode: mode,
+            exists: false
+        }
+
+        if ( req.is_success ) {
+            this.handle.exists = true;
+        } else {
+        }
+        
+        this.handle.opened = true;
         return true;
+    },
+
+    close: function () {
+        this.handle = {}
+        return true;
+    },
+
+    slurp: function () {
+        var req = this.request_for({ "path": this.handle.path, "field": "content" });
+        if ( req.isSuccess() ) {
+            // This js is jifty-specific. Other framework may not generating
+            // js using $_ variable.
+            eval(req.transport.responseText);
+            this.handle.file_content = $_;
+        } else {
+            this.handle.file_content = null;
+        }
+        return this.handle.file_content;
+    },
+
+    write: function (  ) {
+        
+    },
+
+    seek: function ( pos ) {
+        
     }
-    return false;
-}
+};
 
-_.open = function ( path, mode ) {
-    var req = this.request_for({ "path": path, "field": 'name' });
-    this.handle = {
-        path: path,
-        mode: mode,
-        exists: false
-    }
 
-    if ( req.is_success ) {
-        this.handle.exists = true;
-    } else {
-    }
-    
-    this.handle.opened = true;
-    return true;
-}
-
-_.close = function () {
-    this.handle = {}
-    return true;
-}
-
-_.slurp = function () {
-    var req = this.request_for({ "path": this.handle.path, "field": "content" });
-    if ( req.isSuccess() ) {
-        // This js is jifty-specific. Other framework may not generating
-        // js using $_ variable.
-        eval(req.transport.responseText);
-        this.handle.file_content = $_;
-    } else {
-        this.handle.file_content = null;
-    }
-    return this.handle.file_content;
-}
-
-_.write = function (  ) {
-    
-}
-
-_.seek = function ( pos ) {
-    
-}
