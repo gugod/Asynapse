@@ -96,8 +96,8 @@ Asynapse.File.exists = function ( path ) {
     return f.exists(path);
 }
 
-
 // Object methods.
+
 Asynapse.File.prototype = {
 
     // Helper methods
@@ -210,5 +210,3 @@ Asynapse.File.prototype = {
         this.handle.pos = pos;
     }
 };
-
-
