@@ -117,6 +117,7 @@ Asynapse.File.prototype = {
         if ( param.request_method ) {
             uri = uri + "!" + param.request_method;
         }
+        return uri;
     },
 
     request_for: function ( param ) {
@@ -162,7 +163,7 @@ Asynapse.File.prototype = {
     save: function() {
         // replace_item in Jifty::Plugin::REST needs to be implemented.
         throw("save() is unimplemented");
-        
+
         return new HTTP.Request({
             method: 'post',
             request_method: 'PUT',
@@ -189,7 +190,7 @@ Asynapse.File.prototype = {
     },
 
     print: function ( str ) {
-        var s = this.handle.content;
+        var s = this.handle.content || "";
         var pre = s.substr(0, this.handle.pos - 1);
         var pos = s.substr(this.handle.pos);
         this.handle.content = pre + str + pos;
