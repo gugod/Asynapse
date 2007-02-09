@@ -3,6 +3,9 @@ Steps run tests:
 
 % bin/jifty schema --setup
 % bin/setup-test-data
-% bin/jifty server
+% bin/jifty server --port 3001
 
-Hit http://localhost:8888/tests/
+Hit http://localhost:3001/static/run/index.html
+
+Note that this test app needs to be run at port 3001 otherwise XHR
+inside tests simply fails.
