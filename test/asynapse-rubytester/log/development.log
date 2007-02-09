@@ -1,0 +1,1540 @@
+  [4;36;1mSQL (0.003964)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002028)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000394)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateAsynapseFiles (1)
+  [4;36;1mSQL (0.002245)[0m   [0;1mCREATE TABLE asynapse_files ("id" INTEGER PRIMARY KEY NOT NULL, "name" varchar(255) DEFAULT NULL, "content" varchar(255) DEFAULT NULL) [0m
+  [4;35;1mSQL (0.001949)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000406)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000406)[0m   [0mSELECT name FROM sqlite_master WHERE type = 'table'[0m
+  [4;36;1mSQL (0.000704)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mSQL (0.000122)[0m   [0mPRAGMA index_list(asynapse_files)[0m
+  [4;36;1mSQL (0.001029)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mSQL (0.000525)[0m   [0mINSERT INTO asynapse_files ("name", "content") VALUES('hello.text', 'Hello, World')[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 14:51:49) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/asynapse_file" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 14:51:51) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/asynapse_file/1" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:51:53) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to show):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:51:57) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to show):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 14:52:01) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/asynapse_file/1.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:52:14) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to show):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:52:18) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to show):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:58:11) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.001015)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000314)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Rendering asynapse_files/show
+Completed in 0.06608 (15 reqs/sec) | Rendering: 0.00165 (2%) | DB: 0.00133 (2%) | 200 OK [http://localhost/asynapse_files/1]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:58:24) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000918)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000384)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.01019 (98 reqs/sec) | Rendering: 0.00007 (0%) | DB: 0.00130 (12%) | 200 OK [http://localhost/asynapse_files/1.xml]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:58:39) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000816)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000310)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.01017 (98 reqs/sec) | Rendering: 0.00007 (0%) | DB: 0.00113 (11%) | 200 OK [http://localhost/asynapse_files/1.xml]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:58:41) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000929)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000421)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.00970 (103 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00135 (13%) | 200 OK [http://localhost/asynapse_files/1.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 14:59:01) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000819)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000312)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.01006 (99 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00113 (11%) | 200 OK [http://localhost/asynapse_files/1.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:05:27) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000822)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000310)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.01006 (99 reqs/sec) | Rendering: 0.00008 (0%) | DB: 0.00113 (11%) | 200 OK [http://localhost/asynapse_files/1.js]
+
+
+Processing AsynapseFilesController#1 (for 127.0.0.1 at 2007-02-09 15:06:04) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"1", "id"=>"content", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to 1):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#1 (for 127.0.0.1 at 2007-02-09 15:06:11) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"1", "id"=>"content", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to 1):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#1 (for 127.0.0.1 at 2007-02-09 15:06:17) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "action"=>"1", "id"=>"content", "controller"=>"asynapse_files"}
+
+
+ActionController::UnknownAction (No action responded to 1):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:06:27) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "column"=>"content", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.001019)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000316)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.06345 (15 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00134 (2%) | 200 OK [http://localhost/asynapse_files/show/1/content.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:06:47) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "column"=>"content", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000817)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000309)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.00958 (104 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00113 (11%) | 200 OK [http://localhost/asynapse_files/show/1/content.js]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:09:25) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:09:52) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:10:09) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:10:14) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:10:51) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:11:12) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:11:42) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:11:46) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:11:53) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:11:54) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:12:21) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/model/File/name/hello.txt/content.js" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2007-02-09 15:12:57) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>:show, "id"=>"1", "controller"=>:asynpase_files}
+
+
+NoMethodError (undefined method `camelize' for :asynpase_files:Symbol):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1258:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+undefined method `camelize' for :asynpase_files:Symbol
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1258:in `recognize'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+/Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2007-02-09 15:13:25) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asynpase_files"}
+
+
+NameError (uninitialized constant AsynpaseFilesController):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:267:in `load_missing_constant'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:453:in `const_missing'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:465:in `const_missing'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/inflector.rb:251:in `constantize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1258:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:13:34) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.001023)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000352)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Rendering asynapse_files/show
+Completed in 0.06667 (14 reqs/sec) | Rendering: 0.00171 (2%) | DB: 0.00138 (2%) | 200 OK [http://localhost/model/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:13:43) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/model/File/name1" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:13:48) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000812)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000345)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Rendering asynapse_files/show
+Completed in 0.01077 (92 reqs/sec) | Rendering: 0.00118 (10%) | DB: 0.00116 (10%) | 200 OK [http://localhost/model/File/name/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:13:52) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/model/File/name/1" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:13:55) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;36;1mSQL (0.000805)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+  [4;35;1mAsynapseFile Load (0.000343)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Rendering asynapse_files/show
+Completed in 0.01069 (93 reqs/sec) | Rendering: 0.00118 (11%) | DB: 0.00115 (10%) | 200 OK [http://localhost/=/model/File/name/1]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:14:01) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"1", "action"=>"show", "controller"=>"asynapse_files"}
+
+
+ActiveRecord::RecordNotFound (Couldn't find AsynapseFile without an ID):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activerecord-1.15.1/lib/active_record/base.rb:1009:in `find_from_ids'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activerecord-1.15.1/lib/active_record/base.rb:416:in `find'
+    /app/controllers/asynapse_files_controller.rb:5:in `show'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:1095:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:14:43) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"1", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000450)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = '1') LIMIT 1[0m
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.attributes):
+    /app/controllers/asynapse_files_controller.rb:14:in `show'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:1095:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:14:48) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:15:24) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:15:32) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:15:36) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/=/model/File/name/hello.txt" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:17:06) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000636)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.attributes):
+    /app/controllers/asynapse_files_controller.rb:14:in `show'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:1095:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:632:in `call_filter'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/rescue.rb:83:in `perform_action'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `send'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:430:in `process_without_filters'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/session_management.rb:114:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/base.rb:330:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:41:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:19:00) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000594)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;36;1mSQL (0.000578)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+Rendering asynapse_files/show
+Completed in 0.01252 (79 reqs/sec) | Rendering: 0.00192 (15%) | DB: 0.00117 (9%) | 200 OK [http://localhost/=/model/File/name/hello.txt]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:19:43) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txts", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000424)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txts') LIMIT 1[0m
+Completed in 0.00810 (123 reqs/sec) | Rendering: 0.00011 (1%) | DB: 0.00042 (5%) | 404 Not Found [http://localhost/=/model/File/name/hello.txts]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:19:46) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000588)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;35;1mSQL (0.000596)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+Rendering asynapse_files/show
+Completed in 0.01111 (90 reqs/sec) | Rendering: 0.00123 (11%) | DB: 0.00118 (10%) | 200 OK [http://localhost/=/model/File/name/hello.txt]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:05) [GET]
+  Session ID: 1242c1f5a5a7346f7437d383bb503b14
+  Parameters: {"name"=>"hello.txt", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000575)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;35;1mSQL (0.000590)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+Rendering asynapse_files/show
+Completed in 0.01084 (92 reqs/sec) | Rendering: 0.00120 (11%) | DB: 0.00116 (10%) | 200 OK [http://localhost/=/model/File/name/hello.txt]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:07) [GET]
+  Session ID: 86a7bac88245aaab8c18c31823564683
+  Parameters: {"name"=>"hello.tx2t", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000432)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.tx2t') LIMIT 1[0m
+Completed in 0.00839 (119 reqs/sec) | Rendering: 0.00011 (1%) | DB: 0.00043 (5%) | 404 Not Found [http://localhost/=/model/File/name/hello.tx2t]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:14) [GET]
+  Session ID: 95b5599877e3d408905c5827145ed7e3
+  Parameters: {"name"=>"hello.tx2t", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000434)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.tx2t') LIMIT 1[0m
+Completed in 0.00858 (116 reqs/sec) | Rendering: 0.00011 (1%) | DB: 0.00043 (5%) | 404 Not Found [http://localhost/=/model/File/name/hello.tx2t]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:20) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt/content.js", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000417)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt/content.js') LIMIT 1[0m
+Completed in 0.00839 (119 reqs/sec) | Rendering: 0.00012 (1%) | DB: 0.00042 (4%) | 404 Not Found [http://localhost/=/model/File/name/hello.txt/content.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:24) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt/content.js", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000473)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt/content.js') LIMIT 1[0m
+Completed in 0.00806 (124 reqs/sec) | Rendering: 0.00011 (1%) | DB: 0.00047 (5%) | 404 Not Found [http://localhost/=/model/File/name/hello.txt/content.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:40) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "format"=>"js", "column"=>"content", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000578)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;35;1mSQL (0.000584)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+Completed in 0.00977 (102 reqs/sec) | Rendering: 0.00007 (0%) | DB: 0.00116 (11%) | 200 OK [http://localhost/=/model/File/name/hello.txt/content.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:43) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt.js", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000415)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt.js') LIMIT 1[0m
+Completed in 0.00900 (111 reqs/sec) | Rendering: 0.00015 (1%) | DB: 0.00041 (4%) | 404 Not Found [http://localhost/=/model/File/name/hello.txt.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:20:46) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "format"=>"js", "column"=>"name", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000653)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;36;1mSQL (0.001120)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+Completed in 0.01085 (92 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00177 (16%) | 200 OK [http://localhost/=/model/File/name/hello.txt/name.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:32:07) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "column"=>"content", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;35;1mSQL (0.000862)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+  [4;36;1mAsynapseFile Load (0.000340)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.01027 (97 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00120 (11%) | 200 OK [http://localhost/asynapse_files/show/1/content.js]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:32:10) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"format"=>"js", "column"=>"name", "action"=>"show", "id"=>"1", "controller"=>"asynapse_files"}
+  [4;35;1mSQL (0.000811)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+  [4;36;1mAsynapseFile Load (0.000349)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files.id = 1) [0m
+Completed in 0.00946 (105 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00116 (12%) | 200 OK [http://localhost/asynapse_files/show/1/name.js]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-02-09 15:32:34) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/run/" with {:method=>:get}):
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1266:in `recognize_path'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1256:in `recognize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/rails-1.2.1/lib/dispatcher.rb:40:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+
+
+Rendering /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:32:46) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"nonexists", "format"=>"js", "column"=>"name", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000485)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'nonexists') LIMIT 1[0m
+Completed in 0.00822 (121 reqs/sec) | Rendering: 0.00009 (1%) | DB: 0.00048 (5%) | 404 Not Found [http://localhost/=/model/File/name/nonexists/name.js?]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:32:46) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "format"=>"js", "column"=>"name", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000583)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;35;1mSQL (0.000573)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+Completed in 0.00961 (104 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00116 (12%) | 200 OK [http://localhost/=/model/File/name/hello.txt/name.js?]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:32:47) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "format"=>"js", "column"=>"content", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000608)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;35;1mSQL (0.000588)[0m   [0mPRAGMA table_info(asynapse_files)[0m
+Completed in 0.00947 (105 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00120 (12%) | 200 OK [http://localhost/=/model/File/name/hello.txt/content.js?]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:33:43) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"nonexists", "format"=>"js", "column"=>"name", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;36;1mAsynapseFile Load (0.000421)[0m   [0;1mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'nonexists') LIMIT 1[0m
+Completed in 0.00785 (127 reqs/sec) | Rendering: 0.00008 (1%) | DB: 0.00042 (5%) | 404 Not Found [http://localhost/=/model/File/name/nonexists/name.js?]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:33:44) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "format"=>"js", "column"=>"name", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000586)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;36;1mSQL (0.000579)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+Completed in 0.01000 (99 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00117 (11%) | 200 OK [http://localhost/=/model/File/name/hello.txt/name.js?]
+
+
+Processing AsynapseFilesController#show (for 127.0.0.1 at 2007-02-09 15:33:44) [GET]
+  Session ID: 11cdc717b8e18aaf8230507ff3cd6a4d
+  Parameters: {"name"=>"hello.txt", "format"=>"js", "column"=>"content", "action"=>"show", "controller"=>"asynapse_files"}
+  [4;35;1mAsynapseFile Load (0.000576)[0m   [0mSELECT * FROM asynapse_files WHERE (asynapse_files."name" = 'hello.txt') LIMIT 1[0m
+  [4;36;1mSQL (0.000599)[0m   [0;1mPRAGMA table_info(asynapse_files)[0m
+Completed in 0.00969 (103 reqs/sec) | Rendering: 0.00006 (0%) | DB: 0.00117 (12%) | 200 OK [http://localhost/=/model/File/name/hello.txt/content.js?]

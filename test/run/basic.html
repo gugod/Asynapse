@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="all" />
+  
+  <title>Basic tests</title>
+  
+<script type="text/javascript" src="static/js/jsan/JSAN.js"></script>
+<script type="text/javascript" src="static/js/jsan/Test/Builder.js"></script>
+<script type="text/javascript" src="static/js/jsan/HTTP/Request.js"></script>
+<script type="text/javascript" src="static/js/Asynapse/File.js"></script>
+
+ 
+</head>
+<body>
+  <div id="headers">
+    <a href="/">AsynapseFileTester</a>
+    <h1 class="title">Basic tests</h1>
+
+  </div>
+ 
+
+Testing.
+
+<pre id="test">
+
+<script type="text/javascript">
+
+var t = new Test.Builder();
+t.plan({ tests: 3 });
+
+Asynapse.File.setConfig({
+    model: "http://localhost:3001/=/model/File"
+});
+
+// Object method.
+var f1 = new Asynapse.File;
+t.ok( f1.exists("nonexists") == false, "Non existing file does not eixsts");
+
+var f2 = new Asynapse.File;
+t.ok( f2.exists("hello.txt") == true, "Existing file does eixsts");
+
+var f3 = new Asynapse.File;
+f3.open("hello.txt");
+var f3_content = f3.slurp();
+t.ok( f3_content == "Hello World", "correctly read hello.txt's content.");
+
+</script>
+</pre>
+
+
+</body>
+</html>
+
+

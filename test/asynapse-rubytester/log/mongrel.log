@@ -1,0 +1,123 @@
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/../config/routes.rb:23: undefined local variable or method `show' for main:Object (NameError)
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1128:in `draw'
+	from /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/../config/routes.rb:1
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:489:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:489:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:343:in `new_constants_in'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:489:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1154:in `load_routes!'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1146:in `reload'
+	 ... 16 levels...
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/../config/routes.rb:23: undefined local variable or method `show' for main:Object (NameError)
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1128:in `draw'
+	from /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/../config/routes.rb:1
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:489:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:489:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:343:in `new_constants_in'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/activesupport-1.4.0/lib/active_support/dependencies.rb:489:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1154:in `load_routes!'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/actionpack-1.13.1/lib/action_controller/routing.rb:1146:in `reload'
+	 ... 16 levels...
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16:in `load'
+	from /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/i386/bin/mongrel_rails:16
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid and log/mongrel.log for info.
+** Starting Mongrel listening at 0.0.0.0:3001
+** Starting Rails with development environment...
+/Users/lukhnos/codices/asynapse/test/asynapse-rubytester/config/boot.rb:29:Warning: require_gem is obsolete.  Use gem instead.
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel available at 0.0.0.0:3001
+** Writing PID file to /Users/lukhnos/codices/asynapse/test/asynapse-rubytester/log/locomotive.pid
