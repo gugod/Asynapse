@@ -15,35 +15,40 @@
 </head>
 <body>
   <div id="headers">
-    <h1 class="title">Basic tests</h1>
-
+    <h1 class="title">print tests</h1>
   </div>
- 
-
-Testing.
 
 <pre id="test">
 
 <script type="text/javascript">
-
 var t = new Test.Builder();
-t.plan({ tests: 3 });
+t.plan({ tests: 4 });
 
 Asynapse.File.setConfig({
     model: "http://localhost:3001/=/model/File"
 });
 
-// Object method.
 var f1 = new Asynapse.File;
-t.ok( f1.exists("nonexists") == false, "Non existing file does not eixsts");
+f1.open("hello.txt", "<");
+var f1_content = f1.slurp();
+t.ok( f1_content == "Hello World", "correctly read hello.txt's content.");
+f1.close();
 
-var f2 = new Asynapse.File;
-t.ok( f2.exists("hello.txt") == true, "Existing file does eixsts");
+f1 = new Asynapse.File;
+f1.open("hello.txt", ">");
+f1.print("Hello Borges");
+f1_content = f1.slurp();
+t.isEq( f1_content, "Hello Borges", "print is functional.");
 
-var f3 = new Asynapse.File;
-f3.open("hello.txt");
-var f3_content = f3.slurp();
-t.ok( f3_content == "Hello World", "correctly read hello.txt's content.");
+f1.println(", Luke");
+f1_content = f1.slurp();
+t.isEq( f1_content, "Hello Borges, Luke\n", "println is functional.");
+
+f1.seek(0);
+f1.println("Luke, I am your father");
+f1_content = f1.slurp();
+t.isEq( f1_content, "Luke, I am your father\n", "println is functional after seek to the head.");
+
 
 </script>
 </pre>
