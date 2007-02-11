@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/Asynapse/Emoticon.js"></script>
+    <script type="text/javascript" src="lib/JSAN.js"></script>
+  </head>
+  <body>
+    <pre id="test">
+      <script type="text/javascript">
+        JSAN.use('Test.More')
+        plan({tests: 1 })
+
+        var emoticon = Asynapse.Emoticon.GoogleTalk
+        var html = emoticon.filter(":-)");
+        is(html, "<img src=\"http://mail.google.com/mail/help/images/screenshots/chat/nose_smile.gif\"  />")
+
+      </script>
+    </pre>
+  </body>
+</html>
