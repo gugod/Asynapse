@@ -34,8 +34,8 @@ Asynapse.Emoticon.prototype = {
     },
     do_filter: function(icon) {
         var xhtml = this.config.xhtml ? " /" : ""
-        var img_class = this.config.class ?
-            (' class="' + this.config.class + '"') : ""
+        var img_class = this.config["class"] ?
+            ' class="' + this.config["class"] + '"' : ""
 
         return "<img src=\""
             + this.config.imgbase + "/"
