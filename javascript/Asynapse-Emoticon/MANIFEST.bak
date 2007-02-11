@@ -1,0 +1,7 @@
+lib/Asynapse/Emoticon.js
+Makefile.PL
+MANIFEST			This list of files
+tests/gtalk.html
+tests/index.html
+tests/msn.html
+tests/yahoo.html

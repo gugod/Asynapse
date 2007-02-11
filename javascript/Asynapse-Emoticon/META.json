@@ -1,0 +1,27 @@
+{
+    "resources": {
+        "license": "http://dev.perl.org/licenses/"
+    },
+    "generated_by": "Module::Build version 0.2806",
+    "meta-spec": {
+        "version": 1.2,
+        "url": "http://module-build.sourceforge.net/META-spec-v1.2.html"
+    },
+    "version": 0.01,
+    "name": "Asynapse.Emoticon",
+    "author": [
+        "Kang-min Liu, <gugod@gugod.org>"
+    ],
+    "license": "perl",
+    "keywords": [
+        "Asynapse",
+        "Emoticon"
+    ],
+    "provides": {
+        "Asynapse.Emoticon": {
+            "version": 0.01,
+            "file": "lib/Asynapse/Emoticon.js"
+        }
+    },
+    "abstract": "Enable emoticon in-place."
+}

@@ -1,1 +1,8 @@
-{}
+{
+          'Asynapse.Emoticon-0.01' => 1,
+          'doc/pod' => 1,
+          'doc/html' => 1,
+          'doc/text' => 1,
+          'MANIFEST.bak' => 1,
+          'blib' => 1
+        }

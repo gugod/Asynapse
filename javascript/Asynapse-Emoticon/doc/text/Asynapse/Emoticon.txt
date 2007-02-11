@@ -1,0 +1,58 @@
+NAME
+
+    Asynapse.Emoticon - Enable emoticon in-place.
+
+SYNOPSIS
+
+        var emoticon = new Asynapse.Emoticon.GoogleTalk
+        emoticon.filter( document.getElementById("smiley") )
+
+DESCRIPTION
+
+    This library scan through your specified text or elements, and replace
+    all emotion text it found with emoticon images. 3 styles available:
+    GoogleTalk, MSN, Yahoo. First create an emoticon object:
+
+        emoticon = new Asynapse.Emoticon.GoogleTalk
+
+    Then invoke it's filter() method with your text in string:
+
+        emoticon.filter( string )
+
+    Or with a DOM element:
+
+        var elem = document.getElementById("foo")
+        emoticon.filter( elem )
+
+    If you have prototype, jQuery or cssQuery around, this could looks
+    cool:
+
+        emoticon.filter( $('foo') )
+
+    If you need to filter through many elements, so far please do this on
+    your own:
+
+        for ( i =0 ; i < elements.lenght ; i++ ) {
+            emoticon.filter( elements[i] )
+        }
+
+    The filter doesn't go deep down the DOM to replace all emotion text,
+    but just the first-level child nodes. This may be changed in the
+    future.
+
+SEE ALSO
+
+    Text::Emoticon Perl module on CPAN.
+
+AUTHOR
+
+    Kang-min Liu, <gugod@gugod.org>
+
+COPYRIGHT
+
+    Copyright (c) 2007 Kang-min Liu. All rights reserved.
+
+    This module is free software; you can redistribute it and/or modify it
+    under the same terms as the Perl programming language (your choice of
+    GPL or the Perl Artistic license).
+
