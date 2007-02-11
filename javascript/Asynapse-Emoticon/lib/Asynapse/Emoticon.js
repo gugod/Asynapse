@@ -4,6 +4,8 @@ if ( typeof Asynapse == 'undefined' ) {
 
 Asynapse.Emoticon = function(){}
 
+Asynapse.Emoticon.VERSION = "0.01"
+
 Asynapse.Emoticon.prototype = {
     filter: function(target) {
         if ( typeof target == 'string' ) {
@@ -295,3 +297,32 @@ Asynapse.Emoticon.Yahoo.map = {
         ':-j'  : '78.gif',
         '(*)'  : '79.gif'
 }
+
+/**
+
+=head1 NAME
+
+Asynapse.Emoticon - Enable emoticon in-place.
+
+=head1 SYNOPSIS
+
+    var emoticon = Asynapse.Emoticon.GoogleTalk
+    emoticon.filter( document.getElementById("smiley") )
+
+=head1 DESCRIPTION
+
+=head1 AUTHOR
+
+Kang-min Liu, <gugod@gugod.org>
+
+=head1 COPYRIGHT
+
+Copyright (c) 2007 Kang-min Liu. All rights reserved.
+
+This module is free software; you can redistribute it and/or modify it under
+the same terms as the Perl programming language (your choice of GPL or the
+Perl Artistic license).
+
+=cut
+
+*/
