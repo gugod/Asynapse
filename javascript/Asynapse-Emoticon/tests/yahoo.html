@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/Asynapse/Emoticon.js"></script>
+    <script type="text/javascript" src="lib/JSAN.js"></script>
+  </head>
+  <body>
+    <p id="smiley">I smile therefore I live :), sometimes winking like a babe ;)</p>
+    <pre id="test">
+      <script type="text/javascript">
+
+JSAN.use('Test.More')
+plan({tests: 1})
+
+var emoticon = Asynapse.Emoticon.Yahoo
+emoticon.filter( document.getElementById('smiley') );
+
+var ps = document.getElementById('smiley')
+like(ps.innerHTML , "yimg.com")
+
+      </script>
+    </pre>
+  </body>
+</html>
