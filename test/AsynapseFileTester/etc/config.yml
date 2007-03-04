@@ -21,6 +21,7 @@ framework:
 
   Plugins:
     - REST: {}
+    - AsynapseTextDiff: {}
 
   PubSub: 
     Backend: Memcached

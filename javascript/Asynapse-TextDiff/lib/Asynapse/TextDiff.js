@@ -22,7 +22,7 @@ Asynapse.TextDiff.prototype = {
         this.config = Asynapse.TextDiff.config
         var req = new XMLHttpRequest()
         req.open('POST', this.config.url , false)
-        req.setRequestHeader("Content-Type", "text/x-json")
+        req.setRequestHeader("Content-Type", "text/x-json; charset=UTF-8")
         req.send(JSON.stringify({ text1: one, text2: two }));
         if ( req.readyState == 4 )
             if ( req.status == 200 )
