@@ -6,19 +6,27 @@ Asynapse.TextDiff = function() {
     this.init.apply(this, arguments)
 }
 
+Asynapse.TextDiff.config = {
+    url: "/=/diff/"
+}
+
+Asynapse.TextDiff.setConfig = function ( config ) {
+    var k
+    for(k in config) {
+        Asynapse.TextDiff.config[k] = config[k]
+    }
+}
+
 Asynapse.TextDiff.prototype = {
     init: function(one, two) {
+        this.config = Asynapse.TextDiff.config
         var req = new XMLHttpRequest()
-        req.open('POST', "/=/diff/", false)
+        req.open('POST', this.config.url , false)
         req.setRequestHeader("Content-Type", "text/x-json")
-        req.send({ text1: one, text2: two }.toJSONString())
-        if ( req.readyState == 4 ) {
-            if ( req.status == 200 ) {
-                var data;
-                eval("data = " + req.responseText);
-                this.data = data;
-            }
-        }
+        req.send(JSON.stringify({ text1: one, text2: two }));
+        if ( req.readyState == 4 )
+            if ( req.status == 200 )
+                eval("this.data = " + req.responseText);
         return this;
     },
     to_html: function() {
