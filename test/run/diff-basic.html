@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script type="text/javascript" src="static/js/json.js"></script>
+    <script type="text/javascript" src="static/js/Asynapse/TextDiff.js"></script>
+  </head>
+  <body>
+    <pre id="test">
+    </pre>
+    <div id="divarena"></div>
+
+    <script type="text/javascript">
+
+// Asynapse.TextDiff.setConfig({ url: "/=/diff/" });
+
+var diff = new Asynapse.TextDiff(
+    "Foo\nbar\nbaz",
+    "Foo\nbaz"
+);
+var divarena = document.getElementById("divarena");
+divarena.innerHTML = diff.to_html();
+
+    </script>
+    
+  </bodY>
+</html>
