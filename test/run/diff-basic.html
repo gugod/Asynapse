@@ -2,17 +2,16 @@
   <head>
     <script type="text/javascript" src="static/js/json.js"></script>
     <script type="text/javascript" src="static/js/Asynapse/TextDiff.js"></script>
+  
+    <script type="text/javascript" src="static/js/jsan/JSAN.js"></script>
+    <script type="text/javascript" src="static/js/jsan/Test/Builder.js"></script>
+
   </head>
   <body>
-    <pre id="test">
-1..1
-ok 1 - Non existing file does not eixsts
-    </pre>
+    <pre id="test"></pre>
     <div id="divarena"></div>
 
     <script type="text/javascript">
-
-// Asynapse.TextDiff.setConfig({ url: "/=/diff/" });
 
 var diff = new Asynapse.TextDiff(
     "Foo\nbar\nbaz",
@@ -20,6 +19,13 @@ var diff = new Asynapse.TextDiff(
 );
 var divarena = document.getElementById("divarena");
 divarena.innerHTML = diff.to_html();
+
+var t = new Test.Builder();
+t.plan({ tests: 4 });
+t.ok( diff.data.length == 3, "3 differences" )
+t.ok( diff.data[0][0] == 'u', "1st is unified")
+t.ok( diff.data[1][0] == '-', "2nd is deletion")
+t.ok( diff.data[2][0] == 'u', "3rd is unified")
 
     </script>
     
