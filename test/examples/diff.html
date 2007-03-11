@@ -8,35 +8,54 @@
       #left-side { float: left; }
       #right-side { float: right; }
       #divarena { width: 100%; }
-      #divarena table { width: 100%; border-collapse: collapse; }
-      #divarena td    { padding: 5px;}
       .spacer { clear: both; }
+
+      table.asynapse-textdiff { border: 2px solid #112; width: 100%; border-collapse: collapse;}
+      table.asynapse-textdiff td { border: 1px solid #112;}
+      tr.changed td { background:#ffc; }
+      tr.deleted td.left  { background:#faa; }
+      tr.added td.right  { background:#aaf; }
+      td       { padding: 5px;}
+      td.op    { width: auto; }
+      td.left  { width: 49%; }
+      td.right { width: 49%; }
     </style>
     <script type="text/javascript">
 
 var $ = function(id) { return document.getElementById(id) };
 
+var dirty = true;
+
 function diffform() {
     var diff = new Asynapse.TextDiff( $("left").value, $("right").value );
     var divarena = $("divarena");
     divarena.innerHTML = diff.to_html();
+    dirty = false;
 }
+
+setInterval(function() {
+    try {
+        if(dirty) {
+            diffform();
+        }
+    }
+    catch(e){
+        throw(e)
+    }
+}, 1000);
 
     </script>
   </head>
   <body>
     <div style="width:700px;">
       <form onsubmit="diffform(); return false;" action="diff.html">
-        <div style="">
-          <div id="left-side">
-            <h2>Left</h2>
-            <textarea id="left"  name="left"></textarea>
-          </div>
-          <div id="right-side">
-            <h2>Right</h2>
-            <textarea id="right" name="right"></textarea>
-            <input type="submit" value="Diff" />
-          </div>
+        <div id="left-side">
+          <h2>Left</h2>
+          <textarea id="left"  name="left" onkeypress="dirty=true;"></textarea>
+        </div>
+        <div id="right-side">
+          <h2>Right</h2>
+          <textarea id="right" name="right" onkeypress="dirty=true;"></textarea>
         </div>
       </form>
       <div class="spacer">&nbsp;</div>

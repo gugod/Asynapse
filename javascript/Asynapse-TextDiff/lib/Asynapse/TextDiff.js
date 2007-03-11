@@ -30,12 +30,13 @@ Asynapse.TextDiff.prototype = {
         return this;
     },
     to_html: function() {
-        var ret = "<table border=\"1\"><tr><td></td><td>Left</td><td>Right</td></tr>";
+        var classmap = { '+': 'added', '-': 'deleted', 'u': 'unified', 'c': 'changed' };
+        var ret = "<table class=\"asynapse-textdiff\"><tr><th>Left</th><th>&nbsp;</th><th>Right</th></tr>";
         for(var i = 0; i < this.data.length; i++) {
-            ret += '<tr>'
-            ret += "<td>" + this.data[i][0] + "&nbsp;</td>";
-            ret += "<td>" + this.data[i][1] + "&nbsp;</td>";
-            ret += "<td>" + this.data[i][2] + "&nbsp;</td>";
+            ret += "<tr class=\"%\">".replace(/%/, classmap[this.data[i][0]]);
+            ret += "<td class=\"left\">" + this.data[i][1] + "&nbsp;</td>";
+            ret += "<td class=\"op\">" + this.data[i][0] + "&nbsp;</td>";
+            ret += "<td class=\"right\">" + this.data[i][2] + "&nbsp;</td>";
             ret += '</tr>'
         }
         ret += '</table>';
