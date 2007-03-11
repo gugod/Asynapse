@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="text/javascript" src="static/js/json.js"></script>
+    <script type="text/javascript" src="static/js/Asynapse/TextDiff.js"></script>
+    <style type="text/css">
+      textarea {width: 320px; height: 10em;}
+      textarea:focus {background:#ffe;}
+      #left-side { float: left; }
+      #right-side { float: right; }
+      #divarena { width: 100%; }
+      #divarena table { width: 100%; border-collapse: collapse; }
+      #divarena td    { padding: 5px;}
+      .spacer { clear: both; }
+    </style>
+    <script type="text/javascript">
+
+var $ = function(id) { return document.getElementById(id) };
+
+function diffform() {
+    var diff = new Asynapse.TextDiff( $("left").value, $("right").value );
+    var divarena = $("divarena");
+    divarena.innerHTML = diff.to_html();
+}
+
+    </script>
+  </head>
+  <body>
+    <div style="width:700px;">
+      <form onsubmit="diffform(); return false;" action="diff.html">
+        <div style="">
+          <div id="left-side">
+            <h2>Left</h2>
+            <textarea id="left"  name="left"></textarea>
+          </div>
+          <div id="right-side">
+            <h2>Right</h2>
+            <textarea id="right" name="right"></textarea>
+            <input type="submit" value="Diff" />
+          </div>
+        </div>
+      </form>
+      <div class="spacer">&nbsp;</div>
+      <hr />
+      <div id="divarena"></div>
+    </div>
+  </body>
+</html>
+
