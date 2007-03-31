@@ -3,8 +3,31 @@ use strict;
 use warnings;
 use DBI;
 
-my $dbh = DBI->connect("dbi:SQLite:dbname=var/asynapsefiletester.db");
+my $dbh = DBI->connect( "dbi:SQLite:dbname=var/asynapsefiletester.db",
+    "", "", { AutoCommit => 0 } );
+
 $dbh->do(qq{INSERT INTO files VALUES(1, "hello.txt", "Hello World")});
 
-$dbh->do(qq{INSERT INTO people VALUES(1, "John", "1980-01-01 00:00:01")});
-$dbh->do(qq{INSERT INTO people VALUES(2, "Jonny", "1980-01-02 00:00:01")});
+{
+    print "Generating Many People\n";
+
+    use WWW::NameGen;
+    use DateTime::Event::Random;
+
+    my $namegen = WWW::NameGen->new();
+    my @names = $namegen->generate(min => 30);
+
+    my $id = 1;
+    for (@names) {
+        s/^\s+//sg;
+        s/\s+$//sg;
+        my $birthday = DateTime::Event::Random->datetime;
+        $dbh->do(
+            qq{INSERT INTO people VALUES(?,?,?)}, undef,
+            $id++, $_, $birthday
+            );
+    }
+    print "==> $id People Generated\n";
+}
+
+$dbh->commit;
