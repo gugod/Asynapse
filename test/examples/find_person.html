@@ -11,13 +11,9 @@
       Person = new Asynapse.REST.Model('person');
 
       function evalform() {
-          var p = Person.find( $("person_id").value );
+      var p = Person.find( Number($("person_id").value) );
           $("divarena").innerHTML = "<pre>ID: %ID\nName: %NAME\nBirthday:%BIRTHDAY</pre>".replace("%ID", p.id).replace("%NAME", p.name).replace("%BIRTHDAY", p.birthday)
 
-      }
-      window.onload = function() {
-          person = Person.find(1);
-          console.log(person);
       }
     </script>
   </head>
