@@ -19,26 +19,51 @@ Asynapse.REST.Model.prototype = {
     },
 
     /* Jifty API */
-    show_item: function(column, value) {
-        var url = "/=/model/%MODEL/%COLUMN/%VALUE.js"
-            .replace("%MODEL", this._model)
-            .replace("%COLUMN", column)
-            .replace("%VALUE", value)
+    show_item_field: function(column, key, field) {
+        var url = "/=/model/*/*/*/*.js"
+            .replace("*", this._model)
+            .replace("*", column)
+            .replace("*", key)
+            .replace("*", field)
+
+        return this.eval_ajax_get(url);        
+    },
+    
+    show_item: function(column, key) {
+        var url = "/=/model/*/*/*.js"
+            .replace("*", this._model)
+            .replace("*", column)
+            .replace("*", key)
 
         return this.eval_ajax_get(url);
     },
 
     list_model_items: function(column) {
-        var url = "/=/model/%MODEL/%COLUMN.js"
-            .replace("%MODEL", this._model)
-            .replace("%COLUMN", column)
+        var url = "/=/model/*/*.js"
+            .replace("*", this._model)
+            .replace("*", column)
+
+        return this.eval_ajax_get(url);
+    },
+
+    list_model_columns: function() {
+        var url = "/=/model/*.js"
+            .replace("*", this._model)
+
+        return this.eval_ajax_get(url);
+    },
+
+    list_models: function() {
+        var url = "/=/model.js"
 
         return this.eval_ajax_get(url);
     },
 
     /* Internal Helpers */
     eval_ajax_get: function(url) {
+        console.log(url)
         eval(this.ajax_get(url));
+
         return $_;
     },
     ajax_get: function(url) {

@@ -8,13 +8,14 @@
 
     </style>
     <script type="text/javascript">
-      Person = new Asynapse.REST.Model('person');
 
-      function evalform() {
-      var p = Person.find( Number($("person_id").value) );
-          $("divarena").innerHTML = "<pre>ID: %ID\nName: %NAME\nBirthday:%BIRTHDAY</pre>".replace("%ID", p.id).replace("%NAME", p.name).replace("%BIRTHDAY", p.birthday)
+Person = new Asynapse.REST.Model('person');
 
-      }
+function evalform() {
+    var p = Person.find( Number($("person_id").value) );
+    $("divarena").innerHTML = "<pre>ID: %ID\nName: %NAME\nBirthday:%BIRTHDAY</pre>".replace("%ID", p.id).replace("%NAME", p.name).replace("%BIRTHDAY", p.birthday)
+}
+
     </script>
   </head>
   <body>
@@ -22,6 +23,13 @@
     <form onsubmit="evalform(); return false;" action="find_person.html">
       <div>
         Person.find( <input id="person_id" name="person_id" /> )
+        <input type="submit" />
+      </div>
+    </form>
+    <hr />
+    <h2>Create a Person</h2>
+    <form onsubmit="evalform(); return false;" action="find_person.html">
+      <div>
         <input type="submit" />
       </div>
     </form>
