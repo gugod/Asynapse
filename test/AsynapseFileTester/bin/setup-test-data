@@ -5,3 +5,6 @@ use DBI;
 
 my $dbh = DBI->connect("dbi:SQLite:dbname=var/asynapsefiletester.db");
 $dbh->do(qq{INSERT INTO files VALUES(1, "hello.txt", "Hello World")});
+
+$dbh->do(qq{INSERT INTO people VALUES(1, "John", "1980-01-01 00:00:01")});
+$dbh->do(qq{INSERT INTO people VALUES(2, "Jonny", "1980-01-02 00:00:01")});
