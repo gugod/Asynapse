@@ -2,6 +2,7 @@
   <head>
     <script type="text/javascript" src="static/js/json.js"></script>
     <script type="text/javascript" src="static/js/prototype.js"></script>
+    <script type="text/javascript" src="static/js/jsan/HTTP/Query.js"></script>
     <script type="text/javascript" src="static/js/Asynapse/REST.js"></script>
 
     <style type="text/css">
@@ -14,6 +15,12 @@ Person = new Asynapse.REST.Model('person');
 function evalform() {
     var p = Person.find( Number($("person_id").value) );
     $("divarena").innerHTML = "<pre>ID: %ID\nName: %NAME\nBirthday:%BIRTHDAY</pre>".replace("%ID", p.id).replace("%NAME", p.name).replace("%BIRTHDAY", p.birthday)
+}
+
+function change_someone() {
+    var p = Person.find( 13 );
+    p.write_attribute("name", "Gugod Is Testing");
+    p.save();
 }
 
     </script>
