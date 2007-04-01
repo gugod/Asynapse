@@ -101,10 +101,8 @@ Asynapse.REST.Model.prototype = {
     
     /* Internal Helpers */
     eval_ajax_get: function(url) {
-        console.log(url)
         eval(this.ajax_get(url));
-
-        return $_;
+        return $H($_)
     },
     ajax_get: function(url) {
         var req = new Ajax.Request(url, {
@@ -113,6 +111,5 @@ Asynapse.REST.Model.prototype = {
         })
         return req.transport.responseText;
     }
-
 }
 
