@@ -16,22 +16,22 @@ JSAN.use("Test.More");
 
 Person = new Asynapse.REST.Model("person");
 
-plan({ tests: 14 });
+plan({ tests: 18 });
 
 var p;
 
 for(var i = 1; i < 5; i++) {
-    p = Person.find(i);
+    p = Person.show_item("id", i);
     is(p.id, i)
     ok( typeof p.name != 'undefined' )
     ok( typeof p.birthday != 'undefined' )
 }
 
-var old_p6 = Person.find(6);
+var old_p6 = Person.show_item("id", 6);
 
 var new_name = "Testing " + Math.random()
 Person.replace_item({ id: 6, name: new_name })
-var new_p6 = Person.find(6)
+var new_p6 = Person.show_item("id", 6)
 is(new_p6.name, new_name, "New Person(6) has a new name")
 isnt(new_p6.name, old_p6.name, "... which is different then its old name")
 
@@ -41,12 +41,12 @@ var result = Person.create_item({name: new_name, birthday: "1980-01-01"})
 ok(typeof result.content.id != 'undefined', "Newly created item has an ID")
 
 var new_person_id = Number(result.content.id)
-var new_person = Person.find( new_person_id )
+var new_person = Person.show_item("id", new_person_id )
 is(new_person.name, new_name, "New Person got the right name")
 is(new_person.birthday, "1980-01-01", "New Person got the right birthday")
 
 Person.delete_item("id", new_person_id)
-new_person = Person.find( new_person_id )
+new_person = Person.show_item("id", new_person_id )
 is(new_person, null, "new person is deleted")
                    
     </script>
