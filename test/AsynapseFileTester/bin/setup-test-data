@@ -11,12 +11,11 @@ $dbh->do(qq{INSERT INTO files VALUES(1, "hello.txt", "Hello World")});
 {
     print "Generating Many People\n";
 
-    use WWW::NameGen;
+    use Text::Lorem::More;
     use DateTime::Event::Random;
 
-    my $namegen = WWW::NameGen->new();
-    my @names = $namegen->generate(min => 30);
-
+    my $lorem = Text::Lorem::More->new();
+    my @names = map { $lorem->fullname } (1..30); 
     my $id = 1;
     for (@names) {
         s/^\s+//sg;
