@@ -4,29 +4,11 @@ Asynapse.REST = {}
 
 Asynapse.REST.Model = function(model) {
     this._model = model
-    this._attributes = {}
+    return this;
 }
 
 Asynapse.REST.Model.prototype = {
-    /* ActiveRecord-like API */
-    new: function() {
-        return this;
-    },
-    
-    find: function(param) {
-        if ( typeof param == 'number' ) {
-            return this.show_item("id", param)
-        }
-    },
-
-    find_by_id: function(id) {
-        return this.show_item("id", id)
-    },
-
-    write_attribute: function(attr, value) {
-    },
-    
-    /* Jifty API */
+    /* Corresponds Jifty's REST Pluing API */
     show_item_field: function(column, key, field) {
         var url = "/=/model/*/*/*/*.js"
             .replace("*", this._model)
@@ -103,6 +85,7 @@ Asynapse.REST.Model.prototype = {
             method: 'DELETE',
             contentType: 'application/x-www-form-urlencoded'
         });
+        return null;
     },
     
     /* Internal Helpers */
@@ -124,3 +107,45 @@ Asynapse.REST.Model.prototype = {
     }
 }
 
+Asynapse.REST.Model.ActiveRecord = function(model) {
+    Object.extend(this, new Asynapse.REST.Model(model));
+    this._attributes = {}
+    return this;
+}
+
+Asynapse.REST.Model.ActiveRecord.prototype = {
+    new: function() {
+        return this;
+    },
+    
+    find: function(param) {
+        if ( typeof param == 'number' ) {
+            return this.show_item("id", param)
+        }
+    },
+
+    find_by_id: function(id) {
+        return this.show_item("id", id)
+    },
+
+    create: function(attributes) {
+        var r = this.create_item(attributes);
+        if (r.success) {
+            return this.find( Number(r.content.id) )
+        }
+        return null;
+    },
+
+    delete: function(id) {
+        this.delete_item(id);
+        return null;
+    },
+
+    update: function(id, attributes) {
+        var attr = $H(attributes);
+        return this.replace_item( attr );
+    },
+
+    write_attribute: function(attr, value) {
+    }
+}
