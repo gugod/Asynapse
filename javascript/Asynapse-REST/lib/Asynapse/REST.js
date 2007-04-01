@@ -71,11 +71,17 @@ Asynapse.REST.Model.prototype = {
         var url ="/=/model/*.js"
             .replace("*", this._model)
 
-        new Ajax.Request(url, {
+        var req = new Ajax.Request(url, {
             method: 'post',
             asynchronous: false,
             postBody: $H(item).toQueryString()
         });
+        if ( req.responseIsSuccess() ) {
+            eval(req.transport.responseText);
+            return $H($_)
+        } else {
+            return {}
+        }
     },
     
     replace_item: function(item) {
@@ -102,14 +108,19 @@ Asynapse.REST.Model.prototype = {
     /* Internal Helpers */
     eval_ajax_get: function(url) {
         eval(this.ajax_get(url));
-        return $H($_)
+        return $H($_);
     },
     ajax_get: function(url) {
         var req = new Ajax.Request(url, {
             method: 'GET',
             asynchronous: false
         })
-        return req.transport.responseText;
+        if ( req.responseIsSuccess() ) {
+            return req.transport.responseText;
+        }
+        else {
+            return "var $_ = {}";
+        }
     }
 }
 
