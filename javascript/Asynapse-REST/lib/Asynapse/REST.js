@@ -1,6 +1,10 @@
-Asynapse = {}
+if ( typeof Asynapse == 'undefined' ) {
+    Asynapse = {}
+}
 
-Asynapse.REST = {}
+if ( typeof Asynapse.REST == 'undefined' ) {
+    Asynapse.REST = {}
+}
 
 Asynapse.REST.Model = function(model) {
     this._model = model
@@ -91,7 +95,7 @@ Asynapse.REST.Model.prototype = {
     /* Internal Helpers */
     eval_ajax_get: function(url) {
         eval(this.ajax_get(url));
-        return $_ ? $H($_) : null;
+        return $_ ? Object.extend({},$_) : null;
     },
     ajax_get: function(url) {
         var req = new Ajax.Request(url, {
@@ -130,22 +134,29 @@ Asynapse.REST.Model.ActiveRecord.prototype = {
 
     create: function(attributes) {
         var r = this.create_item(attributes);
+
         if (r.success) {
-            return this.find( Number(r.content.id) )
+            return this.show_item("id", Number(r.content.id) )
         }
         return null;
     },
 
     delete: function(id) {
-        this.delete_item(id);
-        return null;
+        this.delete_item("id", id)
+        return null
     },
 
     update: function(id, attributes) {
-        var attr = $H(attributes);
-        return this.replace_item( attr );
+        var obj = this.find(id)
+        obj = Object.extend(obj, attributes)
+        return this.replace_item( obj )
     },
 
     write_attribute: function(attr, value) {
     }
 }
+
+/* Great Aliases */
+Asynapse.Model = Asynapse.REST.Model
+Asynapse.ActiveRecord = Asynapse.REST.Model.ActiveRecord
+AsynapseRecord = Asynapse.REST.Model.ActiveRecord

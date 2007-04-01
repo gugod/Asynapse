@@ -14,7 +14,7 @@
 
 JSAN.use("Test.More");
 
-Person = new Asynapse.REST.Model.ActiveRecord("person");
+Person = new AsynapseRecord("person");
 
 plan({ tests: 18 });
 
@@ -27,7 +27,7 @@ for(var i = 1; i < 5; i++) {
     ok( typeof p.birthday != 'undefined' )
 }
 
-var old_p6 = Person.find(6);
+var old_p6 = Person.find(6)
 
 var new_name = "Testing " + Math.random()
 
@@ -50,6 +50,7 @@ is(new_person.name, new_name, "New Person got the right name")
 is(new_person.birthday, "1980-01-01", "New Person got the right birthday")
 
 Person.delete(new_person_id)
+
 new_person = Person.find( new_person_id )
 is(new_person, null, "new person is deleted")
 
