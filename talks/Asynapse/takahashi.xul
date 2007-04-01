@@ -74,25 +74,42 @@ Blogger
 ----
 Flickr
 ----
+Google
+----
 YAHOO Mail
 ----
-Web API
-for [[EM:Service]]
+[[image src="synapse.jpg" width="412" height="505"]]
 ----
-SOAP
-XML-RPC
-REST
+A Synapse
+----
+☺
+----
+→ API
+----
+ALIGN::left
+✔ SOAP
+✔ XML-RPC
+✔ REST
+----
+← Service
+----
+↑
+← CENTER →
+↓ 
 ----
 ☑ Todo
 ----
-Server
+HTTP Server
 ⇕
-Client
+HTTP Client
 ----
 REST
 ----
+REST Server
+⇕
+REST Client
+----
 Model
-Specific
 ----
 [[PRE:Asynapse::File]]
 ----
@@ -101,12 +118,17 @@ GET /=/file/hello.txt
 POST /=/file/hello.txt
 ]]
 ----
-Jifty Plugin
+Jifty
+Plugin
 ----
-Asynapse::TextDiff
+Action
 ----
- POST /=/diff/
- {text1:'...',text2:'....'}
+[[PRE:Asynapse::TextDiff]]
+----
+[[PRE:
+POST /=/diff/
+{text1:'...',text2:'....'}
+]]
 ----
 [[PRE:
 use Algorithm::Diff;
@@ -119,6 +141,8 @@ Plugin
 ----
 Catalyst
 Plugin
+----
+Model
 ----
 資料 
 Data
@@ -148,7 +172,7 @@ Person = Asynapse.Model.REST('person')
 p = Person.find(1)
 ]]
 ----
-Asynapse.Model.REST
+[[PRE:Asynapse.Model.REST]]
 ----
 ALIGN::LEFT
 ✔ JavaScript
@@ -156,19 +180,22 @@ ALIGN::LEFT
 ✔ REST client
 ----
 ALIGN::LEFT
-✔ Jifty's REST Plugin
-✔ Rails's ActiveRecord API
+✔ Jifty REST Plugin
+✔ Catalyst REST Plugin
+----
+ALIGN::LEFT
+✔ Rails's ActiveRecord
+✔ DBIx::Class
 ✔ Class::DBI API
 ----
+Lie
+----
+⌚ ⌨
+----
 Asynapse::Emoticon
+----
 Pure Javascript
 ☺
-----
-[[image src="synapse.jpg" width="412" height="505"]]
-----
-synapse
-----
-[[EM:Asyn]]apse
 </html:textarea>
 
 
