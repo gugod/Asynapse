@@ -47,7 +47,7 @@ is(new_person.birthday, "1980-01-01", "New Person got the right birthday")
 
 Person.delete_item("id", new_person_id)
 new_person = Person.find( new_person_id )
-is(typeof new_person.id, 'undefined', "new person is deleted")
+is(new_person, null, "new person is deleted")
                    
     </script>
     

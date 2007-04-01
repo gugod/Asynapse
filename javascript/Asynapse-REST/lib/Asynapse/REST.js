@@ -80,7 +80,7 @@ Asynapse.REST.Model.prototype = {
             eval(req.transport.responseText);
             return $H($_)
         } else {
-            return {}
+            return null;
         }
     },
     
@@ -108,7 +108,7 @@ Asynapse.REST.Model.prototype = {
     /* Internal Helpers */
     eval_ajax_get: function(url) {
         eval(this.ajax_get(url));
-        return $H($_);
+        return $_ ? $H($_) : null;
     },
     ajax_get: function(url) {
         var req = new Ajax.Request(url, {
@@ -119,7 +119,7 @@ Asynapse.REST.Model.prototype = {
             return req.transport.responseText;
         }
         else {
-            return "var $_ = {}";
+            return "var $_ = null";
         }
     }
 }
