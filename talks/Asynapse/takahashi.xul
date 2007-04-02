@@ -279,13 +279,21 @@ Desktop Application
 [[IMG src="interface-builder.png" width="380" height="280"]]
 Interface Builder
 ----
+NIB
+----
+NIB → [[EM:?]]
+----
+→ XHTML
+----
+[[EM:✔]] XHTML
+----
 → XUL
 ----
 → YUI
 ----
-→ [[EM:?]]
-----
 [[IMG src="tuit.gif" width="466" height="464"]]
+----
+(More)
 ----
 [[PRE:Asynapse::Emoticon]]
 ----
