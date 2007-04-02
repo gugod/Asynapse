@@ -56,76 +56,114 @@ Demo
 ----
 TextDiff
 ----
-File
-----
 Perl
 ⇕
-JavaScript
+Javascript
 ----
-Ruby
-⇕
-JavaScript
-----
-intro();
+&amp;intro;
 ----
 ␦
 ----
-Blogger
+ALIGN::left
+✔ Blogger
+✔ Flickr
+✔ Google
+✔ YAHOO Mail
 ----
-Flickr
+ALIGN::left
+[[EM:A]]pplication
+[[EM:P]]rograming
+[[EM:I]]nterface
 ----
-Google
+Web API
 ----
-YAHOO Mail
+?
+----
+[[EM:Buzz]]
+----
+Fat Clients
+----
+A Web Site ≠ Tons of HTML
+----
+A Web Site = A Model
+----
+A [[EM:Rich]] Model
+----
+[[image src="cwwany-thinking.jpg" width="400" height="400"]]
+(Think)
+----
+✔ API
+----
+✘ Rich Model
+----
+○ Fat Client
 ----
 [[image src="synapse.jpg" width="412" height="505"]]
-----
 A Synapse
 ----
-☺
+[[PRE:
+  a synapse
+
+       n : the junction between two neurons (axon-to-dendrite) or
+           between a neuron and a muscle; "nerve impulses cross a
+           synapse through the action of neurotransmitters"
+]]
 ----
-→ API
+Micro API
+----
+㊒
 ----
 ALIGN::left
 ✔ SOAP
 ✔ XML-RPC
 ✔ REST
 ----
-← Service
+Service
+↓
+----
+Flick[[EM:r]]
 ----
 ↑
-← CENTER →
+← API →
 ↓ 
-----
-☑ Todo
 ----
 HTTP Server
 ⇕
 HTTP Client
 ----
-REST
-----
-REST Server
+[[EM:REST]] Server
 ⇕
-REST Client
+[[EM:REST]] Client
+----
+Tons Of HTML
+----
+Tons Of [[EM:Javascrpts]]
 ----
 Model
 ----
-[[PRE:Asynapse::File]]
+File
 ----
 [[PRE:
-GET /=/file/hello.txt
-POST /=/file/hello.txt
+REST:
+   GET /=/file/hello.txt
+  POST /=/file/hello.txt
+   PUT /=/file/hello.txt
+DELETE /=/file/hello.txt
 ]]
 ----
-Jifty
-Plugin
+ALIGN::left
+Jifty Plugin
+    [[PRE:Asynapse::Model::File]]
+Rails Plugin
+    [[PRE:route.rb + File.rb]]
 ----
 Action
 ----
-[[PRE:Asynapse::TextDiff]]
+Diff
 ----
 [[PRE:
+REST:
+
 POST /=/diff/
 {text1:'...',text2:'....'}
 ]]
@@ -147,41 +185,54 @@ Model
 資料 
 Data
 ----
-Ruby
-(ActiveRecord)
-----
+ALIGN::left
+Rails☛
 [[PRE:
 p = Person.find(1)
 ]]
 ----
+ALIGN::left
 Jifty☛
-----
 [[PRE:
-p = Jifty::Model::Person->new()
-p->load_by_cols(id => 1)
+$p = Jifty::Model::Person->new()
+$p->load_by_cols(id => 1)
 ]]
 ----
-JavaScript
+ALIGN::left
+Catalyst☛
+[[PRE:
+$p = $c->model('person')->find(1)
+]]
+----
+Javascript☛
+----
+
+[[PRE:
+var req = new Ajax.Request( URL, {
+   asynchronous: false
+});
+if ( req.responseIsSuccess() ) {
+   p = eval(req.transport.responseText)
+}
+]]
 ----
 [[PRE:
 p = Person.find(1)
 ]]
 ----
 [[PRE:
-Person = Asynapse.Model.REST('person')
+Person = new AsynapseRecord('person')
 p = Person.find(1)
 ]]
 ----
 [[PRE:Asynapse.Model.REST]]
 ----
 ALIGN::LEFT
-✔ JavaScript
-✔ Ajaxy
-✔ REST client
+✔ Javascript
+✔ REST Client
 ----
-ALIGN::LEFT
-✔ Jifty REST Plugin
-✔ Catalyst REST Plugin
+Jifty's
+REST
 ----
 ALIGN::LEFT
 ✔ Rails's ActiveRecord
@@ -190,11 +241,57 @@ ALIGN::LEFT
 ----
 Lie
 ----
-⌚ ⌨
+⌨
 ----
-Asynapse::Emoticon
+Big
+Picture
 ----
-Pure Javascript
+[[image src="synapse.jpg" width="412" height="505"]]
+Asynapse
+----
+␦
+⇕
+Javascript
+----
+Action
+----
+[[PRE:Asynapse.TextDiff]]
+----
+Model
+----
+[[PRE:AsynapseRecord]]
+----
+View?
+----
+ALIGN::left
+✔ YUI
+✔ YUI-Ext
+----
+✔ Flash
+----
+✔ XUL
+----
+(More)
+----
+REST enhanced
+Desktop Application
+----
+[[IMG src="interface-builder.png" width="380" height="280"]]
+Interface Builder
+----
+→ XUL
+----
+→ YUI
+----
+→ [[EM:?]]
+----
+[[IMG src="tuit.gif" width="466" height="464"]]
+----
+[[PRE:Asynapse::Emoticon]]
+----
+Pure
+Javascript
+----
 ☺
 </html:textarea>
 
