@@ -94,9 +94,11 @@ A [[EM:Rich]] Model
 ----
 ✔ API
 ----
-✘ Rich Model
+✔ Web API
 ----
 ○ Fat Client
+----
+✘ Rich Model
 ----
 [[image src="synapse.jpg" width="412" height="505"]]
 A Synapse
@@ -108,40 +110,51 @@ A Synapse
            between a neuron and a muscle; "nerve impulses cross a
            synapse through the action of neurotransmitters"
 ]]
+[API]
 ----
-Micro API
-----
-㊒
+Micro
+API
 ----
 ALIGN::left
-✔ SOAP
-✔ XML-RPC
-✔ REST
+㊒ SOAP
+㊒ XML-RPC
+㊒ REST
 ----
 Service
 ↓
 ----
 Flick[[EM:r]]
 ----
+flickr.com is biggest consumer
+of it's own Web API.
+----
 ↑
 ← API →
 ↓ 
+----
+Good Applcation Model
+----
+Tons Of [[EM:Javascrpts]]
 ----
 HTTP Server
 ⇕
 HTTP Client
 ----
-[[EM:REST]] Server
+API Server
 ⇕
-[[EM:REST]] Client
-----
-Tons Of HTML
-----
-Tons Of [[EM:Javascrpts]]
+API Client
 ----
 Model
 ----
 File
+----
+[[PRE:
+POSIX:
+  read hello.txt
+ write hello.txt
+rename hello.txt world.txt
+delete hello.txt
+]]
 ----
 [[PRE:
 REST:
@@ -162,6 +175,12 @@ Action
 Diff
 ----
 [[PRE:
+UNIX:
+
+diff -u text1 text2
+]]
+----
+[[PRE:
 REST:
 
 POST /=/diff/
@@ -174,41 +193,35 @@ use Algorithm::Diff;
 sdiff($text1, $text2)->to_json()
 ]]
 ----
+ALIGN::right
 Jifty
 Plugin
 ----
+ALIGN::right
 Catalyst
-Plugin
+ Plugin
 ----
-Model
-----
-資料 
-Data
+資料
+Data Model
 ----
 ALIGN::left
-Rails☛
-[[PRE:
-p = Person.find(1)
-]]
-----
-ALIGN::left
-Jifty☛
+Jifty
 [[PRE:
 $p = Jifty::Model::Person->new()
 $p->load_by_cols(id => 1)
 ]]
 ----
 ALIGN::left
-Catalyst☛
+Catalyst
 [[PRE:
 $p = $c->model('person')->find(1)
 ]]
 ----
-Javascript☛
+Javascript ?
+☛
 ----
-
 [[PRE:
-var req = new Ajax.Request( URL, {
+var req = new Ajax.Request( REST_URL, {
    asynchronous: false
 });
 if ( req.responseIsSuccess() ) {
@@ -216,30 +229,40 @@ if ( req.responseIsSuccess() ) {
 }
 ]]
 ----
+ALIGN::left
+Rails
+[[PRE:
+p = Person.find(1)
+]]
+----
+ALIGN::left
+Javascript
 [[PRE:
 p = Person.find(1)
 ]]
 ----
 [[PRE:
 Person = new AsynapseRecord('person')
+
 p = Person.find(1)
 ]]
 ----
-[[PRE:Asynapse.Model.REST]]
+Asynapse.Model.REST
 ----
 ALIGN::LEFT
 ✔ Javascript
 ✔ REST Client
 ----
-Jifty's
-REST
+Jifty's REST
+----
+More REST is coming
+----
+☑
 ----
 ALIGN::LEFT
-✔ Rails's ActiveRecord
+✔ ActiveRecord
 ✔ DBIx::Class
 ✔ Class::DBI API
-----
-Lie
 ----
 ⌨
 ----
@@ -265,16 +288,18 @@ View?
 ----
 ALIGN::left
 ✔ YUI
-✔ YUI-Ext
+✔ Ext
 ----
+ALIGN::left
 ✔ Flash
-----
 ✔ XUL
 ----
-(More)
+ALIGN::left
+☻ Cocoa
+☻ VB
 ----
-REST enhanced
-Desktop Application
+REST Enhanced
+Desktop App
 ----
 [[IMG src="interface-builder.png" width="380" height="280"]]
 Interface Builder
@@ -289,11 +314,20 @@ NIB → [[EM:?]]
 ----
 → XUL
 ----
-→ YUI
+→ YUI, Ext
+----
+→ JSON
+----
+ALIGN::left
+NIB
+ → JSON / XUL
+ → Web UI
+ ⇢ REST Actions
+ ⇢ JSON
 ----
 [[IMG src="tuit.gif" width="466" height="464"]]
 ----
-(More)
+[[EM:✔]]
 ----
 [[PRE:Asynapse::Emoticon]]
 ----
