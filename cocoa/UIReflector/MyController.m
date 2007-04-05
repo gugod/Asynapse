@@ -76,6 +76,8 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 			NSString *oname = objname();
 			id o = [sv objectAtIndex:i];
 			
+			NSLog(@"==> %@\n", [o className]);
+			
 			APPEND_DIV(oname);
 			
 				if ([o respondsToSelector:@selector(action)])
@@ -93,8 +95,11 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 				if ([[o className] isEqualToString:@"NSTextField"]) {
 					[html appendString:[NSString stringWithFormat:@"%@", [o stringValue]]];
 					add_style_for_object(oname, [o frame], flipv, @"green");	
+				} else if ([[o className] isEqualToString:@"NSScrollView"]) {
+					[html appendString:[NSString stringWithFormat:@"<textarea>%@</textarea>", @"...."]];
+					add_style_for_object(oname, [o frame], flipv, @"red");					
 				} else if ([[o className] isEqualToString:@"NSButton"]) {
-					[html appendString:[NSString stringWithFormat:@"%@", [o title]]];
+					[html appendString:[NSString stringWithFormat:@"<input type=\"button\" value=\"%@\" />", [o title]]];
 					add_style_for_object(oname, [o frame], flipv, @"red");					
 				}
 				else 
