@@ -110,31 +110,29 @@ A Synapse
            between a neuron and a muscle; "nerve impulses cross a
            synapse through the action of neurotransmitters"
 ]]
-[API]
 ----
-Micro
-API
+Micro API
 ----
-ALIGN::left
-㊒ SOAP
-㊒ XML-RPC
-㊒ REST
+←
 ----
-Service
-↓
+SOAP
+----
+XML-RPC
+----
+REST
+----
+Service →
 ----
 Flick[[EM:r]]
-----
-flickr.com is biggest consumer
-of it's own Web API.
 ----
 ↑
 ← API →
 ↓ 
 ----
-Good Applcation Model
+flickr.com is biggest consumer
+of it's own Web API.
 ----
-Tons Of [[EM:Javascrpts]]
+Good Applcation Model
 ----
 HTTP Server
 ⇕
@@ -143,6 +141,8 @@ HTTP Client
 API Server
 ⇕
 API Client
+----
+Tons Of [[EM:Javascrpts]]
 ----
 Model
 ----
@@ -159,8 +159,8 @@ delete hello.txt
 [[PRE:
 REST:
    GET /=/file/hello.txt
-  POST /=/file/hello.txt
    PUT /=/file/hello.txt
+  POST /=/file/hello.txt
 DELETE /=/file/hello.txt
 ]]
 ----
@@ -169,6 +169,38 @@ Jifty Plugin
     [[PRE:Asynapse::Model::File]]
 Rails Plugin
     [[PRE:route.rb + File.rb]]
+----
+Javascript Code:
+[[PRE:
+f = new Asynapse.File()
+f.open("hello.txt")
+f.println("Hello world")
+f.close()
+]]
+----
+Javascript Code:
+[[PRE:
+f = new Asynapse.File()
+content = f.slurp("hello.txt")
+]]
+----
+Real File ?
+----
+[[PRE:
+package Jifty::Plugin::Asynapse::Model::File;
+use Jifty::DBI::Schema;
+
+use Jifty::Record schema {
+    column name => type is 'text';
+    column content => type is 'text';
+};
+]]
+----
+Jifty's config.yaml
+[[PRE:
+  Plugins:
+    - REST: {}
+]]
 ----
 Action
 ----
@@ -197,12 +229,18 @@ ALIGN::right
 Jifty
 Plugin
 ----
+Jifty's config.yaml
+[[PRE:
+  Plugins:
+    - REST: {}
+    - AsynapseTextDiff: {}
+]]
+----
 ALIGN::right
 Catalyst
  Plugin
 ----
 資料
-Data Model
 ----
 ALIGN::left
 Jifty
@@ -324,6 +362,10 @@ NIB
  → Web UI
  ⇢ REST Actions
  ⇢ JSON
+----
+Tons Of Javascript
+----
+Generated
 ----
 [[IMG src="tuit.gif" width="466" height="464"]]
 ----
