@@ -70,7 +70,7 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 	APPEND_DIV(mainframe);
 	{
 		NSArray *sv = [v subviews];
-		
+
 		int i;
 		for (i = 0; i<[sv count]; i++) {
 			NSString *oname = objname();
@@ -112,7 +112,9 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 	}
 	APPEND_END_DIV(mainframe);
 
-	NSLog(@"%@\n\n<style>\n%@</style>\n%@\n<script>\n%@</script>\n%@\n", header, css, html, script, footer);
+	NSString *str = [NSString stringWithFormat:@"%@\n\n<style>\n%@</style>\n%@\n<script>\n%@</script>\n%@\n", header, css, html, script, footer];
+	[str writeToFile:@"/tmp/nibout.html" atomically:TRUE];
+
 }
 
 @end
