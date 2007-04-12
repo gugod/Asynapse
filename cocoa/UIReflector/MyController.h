@@ -16,8 +16,8 @@
 
 - (void)initReflector;
 - (void)render_html;
-- (void)render_html_obj:(id)obj;
+- (void)render_html_obj:(id)o withBaseX:(int)base_x withBaseY:(int)base_y;
 
-- (void)add_style_for:(id)object withRect:(NSRect)f withColor:(id)color;
+- (void)add_style_for:(id)object withRect:(NSRect)f withColor:(id)color withBaseX:(int)base_x withBaseY:(int)base_y;
 
 @end

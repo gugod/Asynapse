@@ -54,7 +54,7 @@ NSString *funcname(SEL selector)
 
 - (void)render_html {
 	NSString *mainframe = @"mainframe";
-	[self add_style_for:mainframe withRect:[contentView frame] withColor:@"blue"];
+	[self add_style_for:mainframe withRect:[contentView frame] withColor:@"blue" withBaseX:0 withBaseY:0];
 	APPEND_DIV(mainframe);
 	{
 		NSArray *sv = [contentView subviews];
@@ -62,17 +62,17 @@ NSString *funcname(SEL selector)
 		int i;
 		for (i = 0; i<[sv count]; i++) {
 			id o = [sv objectAtIndex:i];
-			[self render_html_obj:o];
+			[self render_html_obj:o withBaseX:0 withBaseY:0];
 		}
 	}
 	APPEND_END_DIV(mainframe);
-
 	NSString *str = [NSString stringWithFormat:@"%@\n\n<style>\n%@</style>\n%@\n<script>\n%@</script>\n%@\n",
 											   header, css, html, script, footer];
 	[str writeToFile:@"/tmp/nibout.html" atomically:TRUE];
 }
 
-- (void)render_html_obj:(id)o {
+- (void)render_html_obj:(id)o withBaseX:(int)base_x withBaseY:(int)base_y
+{
 	NSString *oname = objname();
 
 	NSLog(@"==> %@\n", [o className]);
@@ -85,44 +85,46 @@ NSString *funcname(SEL selector)
 			NSString *fn = funcname(s);
 			
 			[script appendString:[NSString stringWithFormat:@"function %@(e) { alert('hi'); }\n", fn]];
-			
 			[script appendString:[NSString stringWithFormat:@"Event.observe('%@', 'click', %@);\n", oname, fn]];
 		}
 	}
 
 	if ([[o className] isEqualToString:@"NSBox"]) {
-		[self add_style_for:oname withRect:[o frame] withColor:@"#aaa"];
+		[self add_style_for:oname withRect:[o frame] withColor:@"#aaa" withBaseX:base_x withBaseY:base_y];
+		NSRect f = [o frame];
 		NSArray *sv = [[o contentView] subviews];
-		
+				
 		int i;
 		for (i = 0; i<[sv count]; i++) {
 			id o = [sv objectAtIndex:i];
-			[self render_html_obj:o];
+			[self render_html_obj:o withBaseX:f.origin.x withBaseY:f.origin.y+15];
 		}
 
 	} else if ([[o className] isEqualToString:@"NSTextField"]) {
 		[html appendString:[NSString stringWithFormat:@"%@", [o stringValue]]];
-		[self add_style_for:oname withRect:[o frame] withColor:@"green"];	
+		[self add_style_for:oname withRect:[o frame] withColor:@"green" withBaseX:base_x withBaseY:base_y];	
 	} else if ([[o className] isEqualToString:@"NSScrollView"]) {
 		[html appendString:[NSString stringWithFormat:@"<textarea>%@</textarea>", @"...."]];
-		[self add_style_for:oname withRect:[o frame] withColor:@"red"];	
+		[self add_style_for:oname withRect:[o frame] withColor:@"red"  withBaseX:base_x withBaseY:base_y];	
 					
 	} else if ([[o className] isEqualToString:@"NSButton"]) {
 		[html appendString:[NSString stringWithFormat:@"<input type=\"button\" value=\"%@\" />", [o title]]];
-		[self add_style_for:oname withRect:[o frame] withColor:@"red"];	
+		[self add_style_for:oname withRect:[o frame] withColor:@"red"  withBaseX:base_x withBaseY:base_y];	
 	} else {
-		[self add_style_for:oname withRect:[o frame] withColor:@"black"];	
+		[self add_style_for:oname withRect:[o frame] withColor:@"black"  withBaseX:base_x withBaseY:base_y];	
 	}
 	
 	APPEND_END_DIV(oname);
 }
 
 
-- (void)add_style_for:(id)objname withRect:(NSRect)f withColor:(id)color {
+- (void)add_style_for:(id)objname withRect:(NSRect)f withColor:(id)color withBaseX:(int)base_x withBaseY:(int)base_y {
 	[css appendString:
 		[NSString stringWithFormat:@"#%@ { position: absolute; left:%dpx; top: %dpx; width: %dpx; height: %dpx; border: 1px solid %@; } \n",
 			objname,
-			(int)f.origin.x, (int)(flipv - (f.origin.y + f.size.height)), (int)f.size.width, (int)f.size.height, color]
+			(int)f.origin.x,
+			(int)(flipv - (f.origin.y + base_y + f.size.height)) ,
+			(int)f.size.width, (int)f.size.height, color]
 	];
 }
 
