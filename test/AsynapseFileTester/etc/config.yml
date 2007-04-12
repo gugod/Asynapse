@@ -20,8 +20,26 @@ framework:
   MailerArgs: []
 
   Plugins:
-    - REST: {}
-    - AsynapseTextDiff: {}
+    - 
+      SkeletonApp: {}
+
+    - 
+      REST: {}
+
+    - 
+      Halo: {}
+
+    - 
+      ErrorTemplates: {}
+
+    - 
+      OnlineDocs: {}
+
+    - 
+      CompressedCSSandJS: {}
+
+    - 
+      AdminUI: {}
 
   PubSub: 
     Backend: Memcached
