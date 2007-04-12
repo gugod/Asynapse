@@ -1,9 +1,5 @@
 #import "MyController.h"
 
-NSMutableString *css;
-NSMutableString *html;
-NSMutableString *script;
-
 NSString *header = 
 @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"><html lang=\"en\">	\
 <head>	\
@@ -15,9 +11,7 @@ NSString *header =
 </head> \
 <body>";
 
-NSString *footer = 
-@" </body></html>";
-
+NSString *footer =  @" </body></html>";
 
 int objcounter = 0;
 
@@ -29,15 +23,6 @@ NSString *funcname(SEL selector)
 {
 	NSString *fn = [NSString stringWithFormat:@"%s", sel_getName(selector)];
 	return [fn substringWithRange:NSMakeRange(0, [fn length]-1)];
-}
-
-void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *color)
-{
-	[css appendString:
-		[NSString stringWithFormat:@"#%@ { position: absolute; left:%dpx; top: %dpx; width: %dpx; height: %dpx; border: 1px solid %@; } \n",
-			objname,
-			(int)f.origin.x, (int)(flipv - (f.origin.y + f.size.height)), (int)f.size.width, (int)f.size.height, color]
-	];
 }
 
 @implementation MyController
@@ -52,24 +37,24 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 	NSLog(@"awake!");
 	NSLog([[self window] description]);
 
+	[self initReflector];
+	[self render_html];
+}
+
+- (void)initReflector {
+	css  = [[NSMutableString new] retain];
+	html = [[NSMutableString new] retain];
+	script = [[NSMutableString new] retain];
 	contentView = [[self window] contentView];
 	flipv = [contentView frame].size.height;
-	
-	[self render_html];
 }
 
 #define APPEND_DIV(d)		[html appendString: [NSString stringWithFormat:@"<div id=\"%@\">\n", d]]
 #define APPEND_END_DIV(d)	[html appendString: @"</div>\n"]
 
-
 - (void)render_html {
-	css  = [[NSMutableString new] retain];
-	html = [[NSMutableString new] retain];
-	script = [[NSMutableString new] retain];
-	
 	NSString *mainframe = @"mainframe";
-	add_style_for_object(mainframe, [contentView frame], flipv, @"blue");	
-
+	[self add_style_for:mainframe withRect:[contentView frame] withColor:@"blue"];
 	APPEND_DIV(mainframe);
 	{
 		NSArray *sv = [contentView subviews];
@@ -87,7 +72,6 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 }
 
 - (void)render_html_obj:(id)o {
-
 	NSString *oname = objname();
 
 	NSLog(@"==> %@\n", [o className]);
@@ -107,19 +91,29 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 
 	if ([[o className] isEqualToString:@"NSTextField"]) {
 		[html appendString:[NSString stringWithFormat:@"%@", [o stringValue]]];
-		add_style_for_object(oname, [o frame], flipv, @"green");	
+		[self add_style_for:oname withRect:[o frame] withColor:@"green"];	
 	} else if ([[o className] isEqualToString:@"NSScrollView"]) {
 		[html appendString:[NSString stringWithFormat:@"<textarea>%@</textarea>", @"...."]];
-		add_style_for_object(oname, [o frame], flipv, @"red");					
+		[self add_style_for:oname withRect:[o frame] withColor:@"red"];	
+					
 	} else if ([[o className] isEqualToString:@"NSButton"]) {
 		[html appendString:[NSString stringWithFormat:@"<input type=\"button\" value=\"%@\" />", [o title]]];
-		add_style_for_object(oname, [o frame], flipv, @"red");					
+		[self add_style_for:oname withRect:[o frame] withColor:@"red"];	
 	}
 	else {
-		add_style_for_object(oname, [o frame], flipv, @"black");
+		[self add_style_for:oname withRect:[o frame] withColor:@"black"];	
 	}
 	
 	APPEND_END_DIV(oname);
+}
+
+
+- (void)add_style_for:(id)objname withRect:(NSRect)f withColor:(id)color {
+	[css appendString:
+		[NSString stringWithFormat:@"#%@ { position: absolute; left:%dpx; top: %dpx; width: %dpx; height: %dpx; border: 1px solid %@; } \n",
+			objname,
+			(int)f.origin.x, (int)(flipv - (f.origin.y + f.size.height)), (int)f.size.width, (int)f.size.height, color]
+	];
 }
 
 @end
