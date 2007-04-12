@@ -7,7 +7,7 @@ Asynapse.TextDiff = function() {
 }
 
 Asynapse.TextDiff.config = {
-    url: "/=/diff/"
+    url: "/=/action/TextDiff.json"
 }
 
 Asynapse.TextDiff.setConfig = function ( config ) {
@@ -20,13 +20,16 @@ Asynapse.TextDiff.setConfig = function ( config ) {
 Asynapse.TextDiff.prototype = {
     init: function(one, two) {
         this.config = Asynapse.TextDiff.config
-        var req = new XMLHttpRequest()
-        req.open('POST', this.config.url , false)
-        req.setRequestHeader("Content-Type", "text/x-json; charset=UTF-8")
-        req.send(JSON.stringify({ text1: one, text2: two }));
-        if ( req.readyState == 4 )
-            if ( req.status == 200 )
-                eval("this.data = " + req.responseText);
+        var req = new Ajax.Request(this.config.url, {
+            method: 'post',
+            asynchronous: false,
+            postBody: $H({
+                'text1': one,
+                'text2': two
+            }).toQueryString()
+        });
+        eval("this.result = " + req.transport.responseText);
+        this.data = this.result.content.diff
         return this;
     },
     to_html: function() {
@@ -44,10 +47,3 @@ Asynapse.TextDiff.prototype = {
     }
 }
 
-if (window.ActiveXObject && !window.XMLHttpRequest) {
-    window.XMLHttpRequest = function() {
-        var name = (navigator.userAgent.toLowerCase().indexOf('msie 5') != -1)
-            ? 'Microsoft.XMLHTTP' : 'Msxml2.XMLHTTP';
-        return new ActiveXObject(name);
-    }
-}
