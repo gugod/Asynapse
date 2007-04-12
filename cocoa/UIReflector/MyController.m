@@ -49,72 +49,77 @@ void add_style_for_object(NSString *objname, NSRect f, float flipv, NSString *co
 }
 
 - (void)awakeFromNib {
+	NSLog(@"awake!");
+	NSLog([[self window] description]);
+
+	contentView = [[self window] contentView];
+	flipv = [contentView frame].size.height;
+	
+	[self render_html];
+}
+
+#define APPEND_DIV(d)		[html appendString: [NSString stringWithFormat:@"<div id=\"%@\">\n", d]]
+#define APPEND_END_DIV(d)	[html appendString: @"</div>\n"]
+
+
+- (void)render_html {
 	css  = [[NSMutableString new] retain];
 	html = [[NSMutableString new] retain];
 	script = [[NSMutableString new] retain];
 	
-	NSLog(@"awake!");
-	
-	NSLog([[self window] description]);
-	
-
-	NSView *v = [[self window] contentView];
-	float flipv = [v frame].size.height;
-	
 	NSString *mainframe = @"mainframe";
-	add_style_for_object(mainframe, [v frame], flipv, @"blue");	
-	
-	#define APPEND_DIV(d)		[html appendString: [NSString stringWithFormat:@"<div id=\"%@\">\n", d]]
-	#define APPEND_END_DIV(d)	[html appendString: @"</div>\n"]
-	
+	add_style_for_object(mainframe, [contentView frame], flipv, @"blue");	
+
 	APPEND_DIV(mainframe);
 	{
-		NSArray *sv = [v subviews];
+		NSArray *sv = [contentView subviews];
 
 		int i;
 		for (i = 0; i<[sv count]; i++) {
-			NSString *oname = objname();
 			id o = [sv objectAtIndex:i];
-			
-			NSLog(@"==> %@\n", [o className]);
-			
-			APPEND_DIV(oname);
-			
-				if ([o respondsToSelector:@selector(action)])
-				{
-					SEL s = [o action];
-					if (s) {
-						NSString *fn = funcname(s);
-						
-						[script appendString:[NSString stringWithFormat:@"function %@(e) { alert('hi'); }\n", fn]];
-						
-						[script appendString:[NSString stringWithFormat:@"Event.observe('%@', 'click', %@);\n", oname, fn]];
-					}
-				}
-			
-				if ([[o className] isEqualToString:@"NSTextField"]) {
-					[html appendString:[NSString stringWithFormat:@"%@", [o stringValue]]];
-					add_style_for_object(oname, [o frame], flipv, @"green");	
-				} else if ([[o className] isEqualToString:@"NSScrollView"]) {
-					[html appendString:[NSString stringWithFormat:@"<textarea>%@</textarea>", @"...."]];
-					add_style_for_object(oname, [o frame], flipv, @"red");					
-				} else if ([[o className] isEqualToString:@"NSButton"]) {
-					[html appendString:[NSString stringWithFormat:@"<input type=\"button\" value=\"%@\" />", [o title]]];
-					add_style_for_object(oname, [o frame], flipv, @"red");					
-				}
-				else 
-				{
-					add_style_for_object(oname, [o frame], flipv, @"black");
-				}
-				
-			APPEND_END_DIV(oname);
+			[self render_html_obj:o];
 		}
 	}
 	APPEND_END_DIV(mainframe);
 
 	NSString *str = [NSString stringWithFormat:@"%@\n\n<style>\n%@</style>\n%@\n<script>\n%@</script>\n%@\n", header, css, html, script, footer];
 	[str writeToFile:@"/tmp/nibout.html" atomically:TRUE];
+}
 
+- (void)render_html_obj:(id)o {
+
+	NSString *oname = objname();
+
+	NSLog(@"==> %@\n", [o className]);
+	
+	APPEND_DIV(oname);
+	if ([o respondsToSelector:@selector(action)])
+	{
+		SEL s = [o action];
+		if (s) {
+			NSString *fn = funcname(s);
+			
+			[script appendString:[NSString stringWithFormat:@"function %@(e) { alert('hi'); }\n", fn]];
+			
+			[script appendString:[NSString stringWithFormat:@"Event.observe('%@', 'click', %@);\n", oname, fn]];
+		}
+	}
+
+	if ([[o className] isEqualToString:@"NSTextField"]) {
+		[html appendString:[NSString stringWithFormat:@"%@", [o stringValue]]];
+		add_style_for_object(oname, [o frame], flipv, @"green");	
+	} else if ([[o className] isEqualToString:@"NSScrollView"]) {
+		[html appendString:[NSString stringWithFormat:@"<textarea>%@</textarea>", @"...."]];
+		add_style_for_object(oname, [o frame], flipv, @"red");					
+	} else if ([[o className] isEqualToString:@"NSButton"]) {
+		[html appendString:[NSString stringWithFormat:@"<input type=\"button\" value=\"%@\" />", [o title]]];
+		add_style_for_object(oname, [o frame], flipv, @"red");					
+	}
+	else {
+		add_style_for_object(oname, [o frame], flipv, @"black");
+	}
+	
+	APPEND_END_DIV(oname);
 }
 
 @end
