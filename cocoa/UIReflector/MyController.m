@@ -67,7 +67,8 @@ NSString *funcname(SEL selector)
 	}
 	APPEND_END_DIV(mainframe);
 
-	NSString *str = [NSString stringWithFormat:@"%@\n\n<style>\n%@</style>\n%@\n<script>\n%@</script>\n%@\n", header, css, html, script, footer];
+	NSString *str = [NSString stringWithFormat:@"%@\n\n<style>\n%@</style>\n%@\n<script>\n%@</script>\n%@\n",
+											   header, css, html, script, footer];
 	[str writeToFile:@"/tmp/nibout.html" atomically:TRUE];
 }
 
@@ -89,7 +90,17 @@ NSString *funcname(SEL selector)
 		}
 	}
 
-	if ([[o className] isEqualToString:@"NSTextField"]) {
+	if ([[o className] isEqualToString:@"NSBox"]) {
+		[self add_style_for:oname withRect:[o frame] withColor:@"#aaa"];
+		NSArray *sv = [[o contentView] subviews];
+		
+		int i;
+		for (i = 0; i<[sv count]; i++) {
+			id o = [sv objectAtIndex:i];
+			[self render_html_obj:o];
+		}
+
+	} else if ([[o className] isEqualToString:@"NSTextField"]) {
 		[html appendString:[NSString stringWithFormat:@"%@", [o stringValue]]];
 		[self add_style_for:oname withRect:[o frame] withColor:@"green"];	
 	} else if ([[o className] isEqualToString:@"NSScrollView"]) {
@@ -99,8 +110,7 @@ NSString *funcname(SEL selector)
 	} else if ([[o className] isEqualToString:@"NSButton"]) {
 		[html appendString:[NSString stringWithFormat:@"<input type=\"button\" value=\"%@\" />", [o title]]];
 		[self add_style_for:oname withRect:[o frame] withColor:@"red"];	
-	}
-	else {
+	} else {
 		[self add_style_for:oname withRect:[o frame] withColor:@"black"];	
 	}
 	
