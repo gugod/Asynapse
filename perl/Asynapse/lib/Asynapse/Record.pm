@@ -14,7 +14,7 @@ our $VERSION = '0.0.1';
 has url_root => ( is => 'rw', isa => 'Str' );
 has model => ( is => 'rw', isa => 'Str' );
 
-sub ua { return LWP::UserAgent->new; }
+sub _ua { return LWP::UserAgent->new; }
 
 sub find {
     my $self = shift;
@@ -32,7 +32,7 @@ sub update {
     my $orig = $self->find($id);
     $orig = { %$orig, %$attributes };
 
-    ua()->post(
+    _ua()->post(
         "@{[$self->url_root]}/=/action/update@{[$self->model]}.json",
         $orig
     );
@@ -46,7 +46,7 @@ sub create {
 
     $self = $self->new unless ref($self);
 
-    my $r = ua->post(
+    my $r = _ua->post(
         "@{[$self->url_root]}/=/model/@{[$self->model]}.json",
         $attributes
     );
@@ -66,7 +66,7 @@ sub delete {
 
     $self = $self->new unless ref($self);
 
-    ua->request(
+    _ua->request(
         HTTP::Request->new(
             "DELETE",
             "@{[$self->url_root]}/=/model/@{[$self->model]}/id/$id.json",
@@ -77,7 +77,7 @@ sub delete {
 
 sub _get {
     my ($url) = @_;
-    my $r = ua->get( $url );
+    my $r = _ua->get( $url );
 
     if ($r->is_success) {
         return JSON::Syck::Load($r->content);
@@ -162,6 +162,20 @@ attributes specified in $attr hash ref.
 =item delete( $id )
 
 Remove the record with primary key $id.
+
+=item url_root ( $url )
+
+Get / set your Jifty instance's URL. You should set this in your own
+model class with this:
+
+  has url_root => ( default => '...' );
+
+=item model ( $model_name )
+
+Get / set your associated model name in the Jifty instance.
+You should set this in your own model class with this:
+
+  has model => ( default => '...' );
 
 =back
 
