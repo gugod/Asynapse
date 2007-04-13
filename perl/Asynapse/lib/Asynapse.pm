@@ -36,6 +36,8 @@ This document describes Asynapse version 0.0.1
 The whole Asynapse project aims for many purposes. This modules
 is only a starting point of documents and references.
 
+Please read L<Asynapse::Record> for more infromation.
+
 =head1 BUGS AND LIMITATIONS
 
 The asynapse project is hosted at L<http://code.google.com/p/asynapse/>.
