@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use Moose;
 use LWP::UserAgent;
+use HTTP::Request;
 use JSON::Syck;
 $JSON::Syck::ImplicitUnicode = 1;
 
@@ -16,22 +17,39 @@ sub find {
     return _get("@{[$self->url_root]}/=/model/@{[$self->model]}/id/${id}.json");
 }
 
-sub udpate {
+sub update {
     my $self = shift;
+    $self = $self->new unless ref($self);
+    my $id = shift;
+    my $attributes = shift;
+
+    my $orig = $self->find($id);
+    $orig = { %$orig, %$attributes };
+
+    _ua()->post(
+        "@{[$self->url_root]}/=/action/update@{[$self->model]}.json",
+        $orig
+    );
+
+    return {};
 }
 
 sub delete {
     my $self = shift;
 }
 
+sub _ua {
+    return LWP::UserAgent->new;
+}
+
 sub _get {
-    my $url = shift;
-    my $ua = LWP::UserAgent->new;
-    my $r = $ua->get($url);
+    my ($url) = @_;
+    my $r = _ua->get( $url );
+
     if ($r->is_success) {
         return JSON::Syck::Load($r->content);
     } else {
-        die $r->status_line;
+        die "$url => " . $r->status_line;
     }
 }
 
