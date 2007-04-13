@@ -1,0 +1,16 @@
+abstract: ~
+author: Kang-min Liu  C<< <gugod@gugod.org> >>
+distribution_type: module
+generated_by: Module::Install version 0.64
+license: perl
+name: Asynapse
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  JSON::Syck: 0.23
+  LWP::UserAgent: 0
+  Moose: 0.17
+  perl: 5.8.8
+version: 1.10_01
