@@ -2,19 +2,9 @@ package Asynapse;
 
 use warnings;
 use strict;
-use Carp;
-use v5.8.0;
+use v5.8.8;
 
-our $VERSION = '0.0.1';
-
-# Other recommended modules (uncomment to use):
-#  use IO::Prompt;
-#  use Perl6::Export;
-#  use Perl6::Slurp;
-#  use Perl6::Say;
-
-
-# Module implementation here
+our $VERSION = '1.10_01';
 
 
 1; # Magic true value required at end of module
@@ -29,61 +19,31 @@ Asynapse - [One line description of module's purpose here]
 
 This document describes Asynapse version 0.0.1
 
-
 =head1 SYNOPSIS
 
-    use Asynapse;
+    # Define Your own AsynapseRecord Class.
+    package Person;
+    use Moose;
+    extends 'Asynapse::Record';
+    has url_root => ( default => "http://localhost:3001" );
+    has model => ( default => "person" );
 
+    # Use it
+    my $p = Person->find(1)
 
 =head1 DESCRIPTION
 
-
-=head1 INTERFACE 
-
-
-=over
-
-=item new()
-
-=back
-
-=head1 DIAGNOSTICS
-
-=over
-
-=item C<< Error message here, perhaps with %s placeholders >>
-
-[Description of error here]
-
-=item C<< Another error message here >>
-
-[Description of error here]
-
-[Et cetera, et cetera]
-
-=back
-
-
-=head1 CONFIGURATION AND ENVIRONMENT
-
-Asynapse requires no configuration files or environment variables.
-
-=head1 DEPENDENCIES
-
-None.
-
-=head1 INCOMPATIBILITIES
-
-None reported.
+The whole Asynapse project aims for many purposes. This modules
+is only a starting point of documents and references.
 
 =head1 BUGS AND LIMITATIONS
 
-No bugs have been reported.
+The asynapse project is hosted at L<http://code.google.com/p/asynapse/>.
+You may contact the authors or submit issues using the web interface.
 
-Please report any bugs or feature requests to
+Alternatively, you may report any bugs or feature requests to
 C<bug-asynapse@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
-
 
 =head1 AUTHOR
 
