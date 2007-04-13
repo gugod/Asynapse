@@ -10,6 +10,8 @@ $JSON::Syck::ImplicitUnicode = 1;
 has url_root => ( is => 'rw', isa => 'Str' );
 has model => ( is => 'rw', isa => 'Str' );
 
+sub ua { return LWP::UserAgent->new; }
+
 sub find {
     my $self = shift;
     $self = $self->new unless ref($self);
@@ -26,7 +28,7 @@ sub update {
     my $orig = $self->find($id);
     $orig = { %$orig, %$attributes };
 
-    _ua()->post(
+    ua()->post(
         "@{[$self->url_root]}/=/action/update@{[$self->model]}.json",
         $orig
     );
@@ -34,22 +36,49 @@ sub update {
     return {};
 }
 
-sub delete {
+sub create {
     my $self = shift;
+    my $attributes = shift;
+
+    $self = $self->new unless ref($self);
+
+    my $r = ua->post(
+        "@{[$self->url_root]}/=/model/@{[$self->model]}.json",
+        $attributes
+    );
+
+    if ($r->is_success) {
+        my $data = JSON::Syck::Load( $r->content );
+        my $id = $data->{content}{id};
+        return $self->find($id);
+    } else {
+        die $r->status_line;
+    }
 }
 
-sub _ua {
-    return LWP::UserAgent->new;
+sub delete {
+    my $self = shift;
+    my $id = shift;
+
+    $self = $self->new unless ref($self);
+
+    ua->request(
+        HTTP::Request->new(
+            "DELETE",
+            "@{[$self->url_root]}/=/model/@{[$self->model]}/id/$id.json",
+        )
+    );
+    return {};
 }
 
 sub _get {
     my ($url) = @_;
-    my $r = _ua->get( $url );
+    my $r = ua->get( $url );
 
     if ($r->is_success) {
         return JSON::Syck::Load($r->content);
     } else {
-        die "$url => " . $r->status_line;
+        return {}
     }
 }
 
