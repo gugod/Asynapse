@@ -27,5 +27,5 @@
             "file": "lib/Asynapse/REST.js"
         }
     },
-    "abstract": "The missing links between servers and clients"
+    "abstract": "Application framework enhancement toolkit."
 }
