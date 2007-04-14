@@ -6,6 +6,7 @@ doc/text/Asynapse.txt
 doc/text/Asynapse/REST.txt
 lib/Asynapse.js
 lib/Asynapse/REST.js
+lib/TextDiff.js
 Makefile.PL
 MANIFEST			This list of files
 META.json
