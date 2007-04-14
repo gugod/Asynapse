@@ -1,0 +1,8 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NibblerController; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }, 
+        {CLASS = NibblerWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }
+    ); 
+    IBVersion = 1; 
+}
