@@ -1,7 +1,8 @@
 {
           'doc/pod' => 1,
-          'doc/html' => 1,
           'doc/text' => 1,
-          'MANIFEST.bak' => 1,
-          'blib' => 1
+          'doc/html' => 1,
+          'Asynapse-0.10_01' => 1,
+          'blib' => 1,
+          'MANIFEST.bak' => 1
         }

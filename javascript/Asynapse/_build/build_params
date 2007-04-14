@@ -45,7 +45,7 @@
             'dist_author' => undef,
             'use_rcfile' => 1,
             'test_files' => undef,
-            'dist_abstract' => undef,
+            'dist_abstract' => 'Application framework enhancement toolkit.',
             'create_readme' => undef,
             'prefix_relpaths' => {
                                    'core' => {

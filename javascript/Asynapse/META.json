@@ -1,0 +1,31 @@
+{
+    "resources": {
+        "license": "http://dev.perl.org/licenses/"
+    },
+    "generated_by": "Module::Build version 0.2806",
+    "meta-spec": {
+        "version": 1.2,
+        "url": "http://module-build.sourceforge.net/META-spec-v1.2.html"
+    },
+    "version": "0.10_01",
+    "name": "Asynapse",
+    "author": [
+        "Kang-min Liu  C<< <gugod@gugod.org> >>"
+    ],
+    "license": "perl",
+    "keywords": [
+        "Asynapse",
+        "REST"
+    ],
+    "provides": {
+        "Asynapse": {
+            "version": "0.10_01",
+            "file": "lib/Asynapse.js"
+        },
+        "Asynapse.REST": {
+            "version": 0.10,
+            "file": "lib/Asynapse/REST.js"
+        }
+    },
+    "abstract": "The missing links between servers and clients"
+}
