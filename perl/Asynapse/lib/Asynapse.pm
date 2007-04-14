@@ -12,12 +12,11 @@ __END__
 
 =head1 NAME
 
-Asynapse - [One line description of module's purpose here]
-
+Asynapse - Application framework enhacement toolkit.
 
 =head1 VERSION
 
-This document describes Asynapse version 0.0.1
+This document describes Asynapse version 0.10_01
 
 =head1 SYNOPSIS
 
