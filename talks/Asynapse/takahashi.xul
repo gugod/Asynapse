@@ -552,8 +552,14 @@ ALIGN::left
 .nib
  → JSON
  → Web/Desktop UI
-    → REST Actions
-    → REST Models
+    ⇒ REST Actions
+    ⇒ REST Models
+----
+AsynapseInterface
+----
+InterfaceNibbler
+----
+☛
 ----
 [[IMG src="RoundTuit.gif" width="185" height="184"]]
 [[http://en.wikipedia.org/wiki/Round_tuit]]
