@@ -54,7 +54,28 @@ Asynapse
 Demo
 (no kidding)
 ----
-TextDiff
+diff
+----
+ALIGN::left
+[[EM:L]]ongest
+[[EM:C]]ommon
+[[EM:S]]equence
+----
+Perl5
+[[PRE:
+use Algorithm::Diff;
+
+sdiff($text1, $text2);
+]]
+----
+Ported to Javascript
+----
+ALIGN::left
+才  な
+怪  い
+----
+Layered to
+Javascript
 ----
 Perl
 ⇕
@@ -65,40 +86,73 @@ Javascript
 ␦
 ----
 ALIGN::left
+✔ Amazon
 ✔ Blogger
+✔ Ebay
+✔ Facebook
 ✔ Flickr
 ✔ Google
 ✔ YAHOO Mail
+----
+Service
 ----
 ALIGN::left
 [[EM:A]]pplication
 [[EM:P]]rograming
 [[EM:I]]nterface
 ----
-Web API
+Web
+API
+----
+ALIGN::left
+→ XHTML, CSS, Javascript...
+→ XML-RPC...
+→ SOAP...
+→ REST...
 ----
 ?
 ----
-[[EM:Buzz]]
+Buzz
 ----
-Fat Clients
+Users
 ----
-A Web Site ≠ Tons of HTML
+Blogging Tools
 ----
-A Web Site = A Model
+Blogger.com API
+Clients
 ----
-A [[EM:Rich]] Model
+Flickr Tools
+----
+Server
+----
+Clients
+----
+Powerful Server
+----
+Powerful Client 
+----
+Powerful Company
+----
+Powerful Customers
+----
+A Web Site
+----
+≠ Tons of HTML
+----
+= A Model
+----
+= A [[EM:Rich]] Model
 ----
 [[image src="cwwany-thinking.jpg" width="400" height="400"]]
 (Think)
 ----
-✔ API
-----
 ✔ Web API
 ----
-○ Fat Client
+Fat Client ?
 ----
-✘ Rich Model
+Rich Model ?
+----
+要什麼
 ----
 [[image src="synapse.jpg" width="412" height="505"]]
 A Synapse
@@ -111,17 +165,14 @@ A Synapse
            synapse through the action of neurotransmitters"
 ]]
 ----
+腦の
+API
+----
 Micro API
 ----
-←
-----
-SOAP
-----
-XML-RPC
-----
-REST
-----
-Service →
+ALIGN::right
+Rich 非
+Model 也
 ----
 Flick[[EM:r]]
 ----
@@ -134,6 +185,21 @@ of it's own Web API.
 ----
 Good Applcation Model
 ----
+Good Applcation
+Development Cycle
+----
+ALIGN::left
+→ XHTML, CSS, Javascript...
+→ XML-RPC...
+→ SOAP...
+→ REST...
+[[EM:Not anymore]]
+----
+ALIGN::left
+→ [[EM:API]]
+   → XHTML, Javascript
+   → CSS
+----
 HTTP Server
 ⇕
 HTTP Client
@@ -142,11 +208,42 @@ API Server
 ⇕
 API Client
 ----
-Tons Of [[EM:Javascrpts]]
+REST
 ----
-Model
+Good
 ----
-File
+Semantics
+----
+Easier
+Client
+Development
+----
+SOAP, XML-RPC
+[bye]
+----
+REST.Model
+----
+ALIGN::left
+檔
+案  [[EM:File]]
+----
+Javascript Code:
+[[PRE:
+f = new File()
+f.open("hello.txt")
+f.println("Hello world")
+f.close()
+]]
+----
+Javascript Code:
+[[PRE:
+f = new File()
+content = f.slurp("hello.txt")
+]]
+----
+Real File ?
+----
+Emulated
 ----
 [[PRE:
 POSIX:
@@ -164,11 +261,42 @@ REST:
 DELETE /=/file/hello.txt
 ]]
 ----
+Asynapse.File
+→ REST Client
+← REST Server
+----
+Server side
+ serving
+----
+Client side
+ viewing
+----
+ALIGN::right
+   GET /=/file/hello.txt[[EM:.json]]
+   PUT /=/file/hello.txt[[EM:.json]]
+  POST /=/file/hello.txt[[EM:.json]]
+DELETE /=/file/hello.txt[[EM:.json]]
+----
+HTML becomes
+[[EM:Optional]] !
+----
+Asynapse.File
+----
 ALIGN::left
 Jifty Plugin
     [[PRE:Asynapse::Model::File]]
 Rails Plugin
     [[PRE:route.rb + File.rb]]
+----
+[[PRE:
+package Jifty::Plugin::Asynapse::Model::File;
+use Jifty::DBI::Schema;
+
+use Jifty::Record schema {
+    column name => type is 'text';
+    column content => type is 'text';
+};
+]]
 ----
 Javascript Code:
 [[PRE:
@@ -184,27 +312,9 @@ f = new Asynapse.File()
 content = f.slurp("hello.txt")
 ]]
 ----
-Real File ?
+REST.Action
 ----
-[[PRE:
-package Jifty::Plugin::Asynapse::Model::File;
-use Jifty::DBI::Schema;
-
-use Jifty::Record schema {
-    column name => type is 'text';
-    column content => type is 'text';
-};
-]]
-----
-Jifty's config.yaml
-[[PRE:
-  Plugins:
-    - REST: {}
-]]
-----
-Action
-----
-Diff
+diff
 ----
 [[PRE:
 UNIX:
@@ -220,6 +330,7 @@ POST /=/diff/
 ]]
 ----
 [[PRE:
+use UNIVERSAL::to_json;
 use Algorithm::Diff;
 
 sdiff($text1, $text2)->to_json()
@@ -229,18 +340,19 @@ ALIGN::right
 Jifty
 Plugin
 ----
-Jifty's config.yaml
-[[PRE:
-  Plugins:
-    - REST: {}
-    - AsynapseTextDiff: {}
-]]
-----
 ALIGN::right
 Catalyst
  Plugin
 ----
 資料
+----
+Find Person No. 1
+----
+Align::left
+SQL
+[[PRE:
+SELECT * FROM people WHERE id = 1;
+]]
 ----
 ALIGN::left
 Jifty
@@ -253,6 +365,12 @@ ALIGN::left
 Catalyst
 [[PRE:
 $p = $c->model('person')->find(1)
+]]
+----
+ALIGN::left
+Ruby On Rails (ActiveRecord)
+[[PRE:
+p = Person.find(1)
 ]]
 ----
 Javascript ?
@@ -268,21 +386,36 @@ if ( req.responseIsSuccess() ) {
 ]]
 ----
 ALIGN::left
-Rails
-[[PRE:
-p = Person.find(1)
-]]
-----
-ALIGN::left
 Javascript
 [[PRE:
 p = Person.find(1)
 ]]
 ----
+AsynapseRecord
+----
+JSAN
+CPAN
+----
 [[PRE:
 Person = new AsynapseRecord('person')
 
 p = Person.find(1)
+]]
+----
+[[PRE:
+REST:
+   GET /=/model/person/1.json
+   PUT /=/model/person/1.json
+  POST /=/model/person/1.json
+DELETE /=/model/person/1.json
+]]
+----
+[[PRE:
+AsynapseRecord:
+   GET Person.find(1)
+   PUT Person.update(1, {name: ..., birthday:... })
+  POST Person.create({name: ..., birthday:... })
+DELETE Person.delete(1)
 ]]
 ----
 Asynapse.Model.REST
@@ -291,7 +424,13 @@ ALIGN::LEFT
 ✔ Javascript
 ✔ REST Client
 ----
+～ ActiveResource
+----
 Jifty's REST
+----
+～ Rails's REST
+----
+～ Catalyst's REST
 ----
 More REST is coming
 ----
@@ -299,8 +438,9 @@ More REST is coming
 ----
 ALIGN::LEFT
 ✔ ActiveRecord
+✔ Jifty::DBI
 ✔ DBIx::Class
-✔ Class::DBI API
+✔ Class::DBI
 ----
 ⌨
 ----
@@ -314,67 +454,117 @@ Asynapse
 ⇕
 Javascript
 ----
-Action
+Action / Controller
 ----
 [[PRE:Asynapse.TextDiff]]
+----
+↗
+----
+Algorithm::*
+----
+→ Permute
+→ Knapsack
+→ Evolutionary
+----
+→ MarkovChain
+→ CurveFit
+→ SVM
 ----
 Model
 ----
 [[PRE:AsynapseRecord]]
 ----
+↗
+----
+[[EM:Rich]] Model
+----
+→ Google Analytics
+----
+[[PRE:
+_uacct = "UA-791800-2";
+urchinTracker();
+]]
+----
+→ Google Map
+→ urmap
+----
+[[PRE:
+new Asynapse.Map(
+    "here",
+    {
+        type: "google",
+        size: "300x300"
+    }
+)
+]]
+----
 View?
+----
+JSON ⇢
+YAML ⇢
 ----
 ALIGN::left
 ✔ YUI
 ✔ Ext
 ----
 ALIGN::left
-✔ Flash
 ✔ XUL
+✔ Flash
 ----
 ALIGN::left
 ☻ Cocoa
-☻ VB
+☻ VirtualStudio
+☻ Swing/AWT
 ----
 REST Enhanced
-Desktop App
+Web App
+----
+REST Enhanced
+[[EM:Desktop]] App
+----
+Hackthon 4/12, 4/13
+[[http://hackathon.blogspot.com/]]
+南海藝廊
 ----
 [[IMG src="interface-builder.png" width="380" height="280"]]
 Interface Builder
 ----
-NIB
+.nib
 ----
-NIB → [[EM:?]]
+.nib → Mac Desktop App
 ----
-→ XHTML
+.nib → [[EM:?]]
 ----
-[[EM:✔]] XHTML
+.nib → XHTML
 ----
-→ XUL
+.nib → YUI, Ext
 ----
-→ YUI, Ext
-----
-→ JSON
+.nib → XUL
 ----
 ALIGN::left
-NIB
- → JSON / XUL
- → Web UI
- ⇢ REST Actions
- ⇢ JSON
+.nib
+  → JSON (YAML / XML)
+    ⇒ XHTML
+    ⇒ XUL
+    ⇒ Flash
 ----
-Tons Of Javascript
+ALIGN::left
+.nib
+ → JSON
+ → Web/Desktop UI
+    → REST Actions
+    → REST Models
 ----
-Generated
+[[IMG src="RoundTuit.gif" width="185" height="184"]]
+[[http://en.wikipedia.org/wiki/Round_tuit]]
 ----
-[[IMG src="tuit.gif" width="466" height="464"]]
-----
-[[EM:✔]]
+Asynapse Project
+[[http://code.google.com/p/asynapse]]
 ----
 [[PRE:Asynapse::Emoticon]]
 ----
-Pure
-Javascript
+Pure Javascript
+JSAN
 ----
 ☺
 </html:textarea>
