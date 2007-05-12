@@ -79,6 +79,10 @@ The content of these dictionaries looks like:
         "Good bye": "再見"
     }
 
+If you already have .po files in your project, you can convert them
+into json dictionaries using C<po2json.pl> in Asynapse project code.
+(under C<perl/Asynapse/bin/po2json.pl>).
+
 =over
 
 =item init( params )
