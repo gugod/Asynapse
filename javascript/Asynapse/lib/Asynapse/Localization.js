@@ -93,10 +93,12 @@ C<dict_path> is the path to .json files.
 
 This function translate C<str> to its localized version.
 
-=back load_dict( lang )
+=item load_dict( lang )
 
 This function is internally called by C<init()> to load dictionary
 json.
+
+=back
 
 =head1 BUGS AND LIMITATIONS
 
