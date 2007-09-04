@@ -120,7 +120,7 @@ Asynapse.REST.Model.ActiveRecord = function(model) {
 }
 
 Asynapse.REST.Model.ActiveRecord.prototype = {
-    new: function() {
+    'new': function() {
         return this;
     },
     
@@ -143,7 +143,7 @@ Asynapse.REST.Model.ActiveRecord.prototype = {
         return null;
     },
 
-    delete: function(id) {
+    'delete': function(id) {
         this.delete_item("id", id)
         return null
     },
