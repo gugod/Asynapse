@@ -2,10 +2,19 @@ package Asynapse;
 
 use warnings;
 use strict;
-use v5.8.8;
+use 5.008008;
 
 our $VERSION = '1.10_01';
 
+{
+    my $ui;
+    sub UI {
+        return $ui if defined $ui;
+        require Asynapse::UI;
+        $ui = Asynapse::UI->new();
+        return $ui;
+    }
+}
 
 1; # Magic true value required at end of module
 __END__
