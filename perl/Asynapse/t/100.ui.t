@@ -21,7 +21,7 @@ plan tests => 1;
         }
     );
 
-    ok($ui->as_html);
+    ok($ui->as_web_page);
 
-    diag $ui->as_html;
+    print STDERR $ui->as_web_page . "\n";;
 }

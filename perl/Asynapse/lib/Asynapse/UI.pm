@@ -19,6 +19,12 @@ sub as_html {
     return join("\n<!-- -->\n", @{self->{output}});
 }
 
+sub as_web_page {
+    return Template::Declare->show("web_page", {
+        body_html => self->as_html
+    });
+}
+
 {
     my $sn = 0;
     sub sn {
@@ -34,6 +40,21 @@ use self;
 
 use JavaScript::Writer;
 use JavaScript::Writer::jQueryHelper;
+
+template 'web_page' => sub {
+    my ($param) = args;
+    html {
+        head {
+            with ( type => "text/javascript", src => "jquery-1.2.1.js"), script { '' };
+            with ( type => "text/javascript"), script {
+                outs_raw "jQuery(function(){ @{[js->as_string]} });";
+            };
+        };
+        body {
+            outs_raw($param->{body_html});
+        }
+    }
+};
 
 template tabs => sub {
     my @def = args;
@@ -79,10 +100,6 @@ template tabs => sub {
     }
 
     jQuery(".aui-tab-content")->hide();
-
-    outs_raw "\n" . js->as_html(closure => 1) . "\n";
-
-    js->new;
 };
 
 1;
